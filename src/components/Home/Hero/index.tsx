@@ -59,141 +59,135 @@ const Hero = () => {
   };
 
   return (
-    <>
-      <section
-        className="relative md:pt-40 md:pb-28 py-20 overflow-hidden z-1"
-        id="main-banner"
-      >
-        <div className="container mx-auto lg:max-w-screen-xl px-4">
-          <div className="grid grid-cols-12">
-            <motion.div {...leftAnimation} className="lg:col-span-5 col-span-12">
-              <div className="flex gap-6 items-center lg:justify-start justify-center mb-5 mt-24">
-                <Image
-                  src= {`${getImagePrefix()}images/icons/icon-bag.svg`}
-                  alt="icon"
-                  width={40}
-                  height={40}
-                />
-                <p className="text-white sm:text-28 text-18 mb-0">
-                  Master trading with <span style={{color: '#13db7a'}}>proven strategies,</span>
-                </p>
-              </div>
-              <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
-                Exclusive Resources & <span style={{color: '#13db7a'}}>a Perfoming </span> Community!{" "}
-                <span className="text-primary"></span>
-              </h1>
-              <div className="flex items-center md:justify-start justify-center gap-8">
-                <a
-                  href="https://discord.com/invite/KQgazMz5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg text-21 font-medium hover:bg-transparent hover:text-primary text-darkmode py-2 px-7 z-50"
-                  style={{ backgroundColor: '#13db7a', border: '2px solid #13db7a', display: 'inline-block', textAlign: 'center' }}
-                >
-                  ENTER THE LAB
-                </a>
-                <button
-                  className="bg-transparent rounded-lg text-21 font-medium py-2 px-7 transition-colors duration-200"
-                  style={{ border: '2px solid #13db7a', color: '#13db7a' }}
-                  onClick={() => setIsSellingOpen(true)}
-                  onMouseOver={e => { e.currentTarget.style.backgroundColor = '#13db7a'; e.currentTarget.style.color = '#fff'; }}
-                  onMouseOut={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#13db7a'; }}
-                >
-                  Pricing
-                </button>
-              </div>
-            </motion.div>
-            <motion.div
-              {...rightAnimation}
-              className="col-span-7 lg:block hidden"
-            >
-              <div className="ml-20 -mr-64">
-                <Image
-                  src= {`${getImagePrefix()}images/hero/banner2.svg`}
-                  alt="Banner"
-                  width={1150}
-                  height={1150}
-                />
-              </div>
-            </motion.div>
-          </div>
-          {/* Our Trusted Partners Section */}
-          <div className="w-full flex flex-col items-center justify-center py-8">
-            <div className="text-center mb-6">
-              <span className="text-primary text-lg font-semibold tracking-wide">&lt; OUR TRUSTED PARTNERS &gt;</span>
+    <section
+      className="relative md:pt-40 md:pb-28 py-20 overflow-hidden z-1"
+      id="main-banner"
+    >
+      <div className="container mx-auto lg:max-w-screen-xl px-4">
+        <div className="grid grid-cols-12">
+          <motion.div {...leftAnimation} className="lg:col-span-5 col-span-12">
+            <div className="flex gap-6 items-center lg:justify-start justify-center mb-5 mt-24">
+              <Image
+                src={`${getImagePrefix()}images/icons/icon-bag.svg`}
+                alt="icon"
+                width={40}
+                height={40}
+              />
+              <p className="text-white sm:text-28 text-18 mb-0">
+                Master trading with <span style={{color: '#13db7a'}}>proven strategies,</span>
+              </p>
             </div>
-            <div className="w-full flex flex-row flex-wrap items-center justify-center gap-12">
-              <div className="flex items-center gap-2">
-                <img src="/images/partners/tealstreet.svg" alt="Tealstreet" className="h-8 opacity-70" />
-                <span className="text-gray-400 text-xl font-bold">Tealstreet</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <img src="/images/partners/too.svg" alt="Too" className="h-8 opacity-70" />
-                <span className="text-gray-400 text-xl font-bold">Too°</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-400 text-3xl font-extrabold">BloFin</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-400 text-2xl font-bold">NINJATRADER</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <img src="/images/partners/tealstreet.svg" alt="Tealstreet" className="h-8 opacity-70" />
-                <span className="text-gray-400 text-xl font-bold">Tealstreet</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <img src="/images/partners/too.svg" alt="Too" className="h-8 opacity-70" />
-                <span className="text-gray-400 text-xl font-bold">Too°</span>
-              </div>
+            <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
+              Exclusive Resources & <span style={{color: '#13db7a'}}>a Perfoming </span> Community!{' '}
+              <span className="text-primary"></span>
+            </h1>
+            <div className="flex items-center md:justify-start justify-center gap-8">
+              <a
+                href="https://discord.com/invite/KQgazMz5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg text-21 font-medium hover:bg-transparent hover:text-primary text-darkmode py-2 px-7 z-50"
+                style={{ backgroundColor: '#13db7a', border: '2px solid #13db7a', display: 'inline-block', textAlign: 'center' }}
+              >
+                ENTER THE LAB
+              </a>
+              <button
+                className="bg-transparent rounded-lg text-21 font-medium py-2 px-7 transition-colors duration-200"
+                style={{ border: '2px solid #13db7a', color: '#13db7a' }}
+                onClick={() => setIsSellingOpen(true)}
+                onMouseOver={e => { e.currentTarget.style.backgroundColor = '#13db7a'; e.currentTarget.style.color = '#fff'; }}
+                onMouseOut={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#13db7a'; }}
+              >
+                Pricing
+              </button>
             </div>
-          </div>
-          <FAQ />
+          </motion.div>
+          <motion.div {...rightAnimation} className="col-span-7 lg:block hidden">
+            <div className="ml-20 -mr-64">
+              <Image
+                src={`${getImagePrefix()}images/hero/banner2.svg`}
+                alt="Banner"
+                width={1150}
+                height={1150}
+              />
+            </div>
+          </motion.div>
         </div>
-        <div className="absolute w-50 h-50 bg-gradient-to-bl from-tealGreen from-50% to-charcoalGray to-60% blur-400 rounded-full -top-64 -right-14 -z-1"></div>
-        {/* Modals for Buy and Sell */}
-        {isBuying && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div
-              ref={BuyRef}
-              className="relative w-full max-w-md overflow-hidden rounded-lg px-8 pt-14 pb-8 z-999 text-center bg-dark_grey bg-opacity-90 backdrop-blur-md"
-            >
-              <button
-                onClick={() => setIsBuyingOpen(false)}
-                className="absolute top-0 right-0 mr-8 mt-8 dark:invert"
-                aria-label="Close Buy Modal"
-              >
-                <Icon
-                  icon="tabler:currency-xrp"
-                  className="text-white hover:text-primary text-24 inline-block me-2"
-                />
-              </button>
-              <BuyCrypto />
+        {/* Our Trusted Partners Section */}
+        <div className="w-full flex flex-col items-center justify-center py-8">
+          <div className="text-center mb-6">
+            <span className="text-primary text-lg font-semibold tracking-wide">&lt; OUR TRUSTED PARTNERS &gt;</span>
+          </div>
+          <div className="w-full flex flex-row flex-wrap items-center justify-center gap-12">
+            <div className="flex items-center gap-2">
+              <img src="/images/partners/tealstreet.svg" alt="Tealstreet" className="h-8 opacity-70" />
+              <span className="text-gray-400 text-xl font-bold">Tealstreet</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <img src="/images/partners/too.svg" alt="Too" className="h-8 opacity-70" />
+              <span className="text-gray-400 text-xl font-bold">Too°</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-gray-400 text-3xl font-extrabold">BloFin</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-gray-400 text-2xl font-bold">NINJATRADER</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <img src="/images/partners/tealstreet.svg" alt="Tealstreet" className="h-8 opacity-70" />
+              <span className="text-gray-400 text-xl font-bold">Tealstreet</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <img src="/images/partners/too.svg" alt="Too" className="h-8 opacity-70" />
+              <span className="text-gray-400 text-xl font-bold">Too°</span>
             </div>
           </div>
-        )}
-        {isSelling && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div
-              ref={SellRef}
-              className="relative w-full max-w-md overflow-hidden rounded-lg px-8 pt-14 pb-8 z-999 text-center bg-dark_grey bg-opacity-90 backdrop-blur-md"
+        </div>
+  {/* FAQ removed to ensure it only appears once in the site */}
+      </div>
+      <div className="absolute w-50 h-50 bg-gradient-to-bl from-tealGreen from-50% to-charcoalGray to-60% blur-400 rounded-full -top-64 -right-14 -z-1"></div>
+      {/* Modals for Buy and Sell */}
+      {isBuying && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div
+            ref={BuyRef}
+            className="relative w-full max-w-md overflow-hidden rounded-lg px-8 pt-14 pb-8 z-999 text-center bg-dark_grey bg-opacity-90 backdrop-blur-md"
+          >
+            <button
+              onClick={() => setIsBuyingOpen(false)}
+              className="absolute top-0 right-0 mr-8 mt-8 dark:invert"
+              aria-label="Close Buy Modal"
             >
-              <button
-                onClick={() => setIsSellingOpen(false)}
-                className="absolute top-0 right-0 mr-8 mt-8 dark:invert"
-                aria-label="Close Sell Modal"
-              >
-                <Icon
-                  icon="tabler:currency-xrp"
-                  className="text-white hover:text-primary text-24 inline-block me-2"
-                />
-              </button>
-              <SellCrypto />
-            </div>
+              <Icon
+                icon="tabler:currency-xrp"
+                className="text-white hover:text-primary text-24 inline-block me-2"
+              />
+            </button>
+            <BuyCrypto />
           </div>
-        )}
-      </section>
-    </>
+        </div>
+      )}
+      {isSelling && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div
+            ref={SellRef}
+            className="relative w-full max-w-md overflow-hidden rounded-lg px-8 pt-14 pb-8 z-999 text-center bg-dark_grey bg-opacity-90 backdrop-blur-md"
+          >
+            <button
+              onClick={() => setIsSellingOpen(false)}
+              className="absolute top-0 right-0 mr-8 mt-8 dark:invert"
+              aria-label="Close Sell Modal"
+            >
+              <Icon
+                icon="tabler:currency-xrp"
+                className="text-white hover:text-primary text-24 inline-block me-2"
+              />
+            </button>
+            <SellCrypto />
+          </div>
+        </div>
+      )}
+    </section>
   );
-};
-
+}
 export default Hero;
