@@ -148,7 +148,7 @@ const Hero = () => {
             </h1>
             <div className="flex items-center md:justify-start justify-center gap-8">
               <a
-                href="https://discord.com/invite/KQgazMz5"
+                href="https://discord.gg/nvhrB6vJCF"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg text-21 font-medium hover:bg-transparent hover:text-primary text-darkmode py-2 px-7 z-50"
@@ -159,7 +159,14 @@ const Hero = () => {
               <button
                 className="bg-transparent rounded-lg text-21 font-medium py-2 px-7 transition-colors duration-200"
                 style={{ border: '2px solid #13db7a', color: '#13db7a' }}
-                onClick={() => setIsSellingOpen(true)}
+                onClick={() => {
+                  const el = document.getElementById('pricing');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } else {
+                    window.location.hash = '#pricing';
+                  }
+                }}
                 onMouseOver={e => { e.currentTarget.style.backgroundColor = '#13db7a'; e.currentTarget.style.color = '#fff'; }}
                 onMouseOut={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#13db7a'; }}
               >

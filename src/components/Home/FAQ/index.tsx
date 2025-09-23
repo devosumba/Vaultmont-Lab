@@ -115,14 +115,16 @@ export default function FAQ() {
           </div>
         </div>
       </section>
-      {/* Pricing Section */}
-      <section className="py-12 bg-darkmode flex flex-col items-center">
-        <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide">{'{ PRICING }'}</div>
-  <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 leading-tight text-center">Discover Our Payment Plans</h2>
-  <p className="text-gray-300 text-lg md:text-xl text-center mb-10 max-w-2xl">Explore tailored subscription options that balance flexibility and value, granting you seamless entry into our community.</p>
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+  {/* Pricing Section */}
+  <section className="py-12 bg-darkmode flex flex-col items-center">
+    <div id="pricing">
+  <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide text-center w-full">{'{ PRICING }'}</div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-4 leading-tight text-center">Discover Our Payment Plans</h2>
+      <p className="text-gray-300 text-base sm:text-lg md:text-xl text-center mb-8 sm:mb-10 max-w-2xl mx-auto">Explore tailored subscription options that balance flexibility and value, granting you seamless entry into our community.</p>
+    </div>
+    <div className="w-full max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8">
           {/* Monthly Membership */}
-          <div className="bg-[#181818] rounded-2xl border border-[#232323] p-8 flex flex-col items-center shadow-lg min-w-[280px] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+          <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
             <div className="text-[#13db7a] text-xl font-semibold mb-2">Monthly Membership</div>
             <div className="flex items-end mb-2">
               <span className="text-white text-5xl font-bold mr-2">$200</span>
@@ -143,7 +145,7 @@ export default function FAQ() {
             <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
           </div>
           {/* Biannual Membership */}
-            <div className="bg-[#181818] rounded-2xl border border-[#232323] p-8 flex flex-col items-center shadow-lg min-w-[280px] relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+            <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
               <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">Most Popular - save 30%</span>
               <div className="text-[#13db7a] text-xl font-semibold mb-2">Biannual Membership</div>
             <div className="flex items-end mb-2">
@@ -165,7 +167,7 @@ export default function FAQ() {
             <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
           </div>
           {/* Annual Membership */}
-          <div className="bg-[#181818] rounded-2xl border border-[#232323] p-8 flex flex-col items-center shadow-lg min-w-[280px] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+          <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
             <div className="text-[#13db7a] text-xl font-semibold mb-2 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">Annual Membership</div>
             <div className="flex items-end mb-2">
               <span className="text-white text-5xl font-bold mr-2">$1,400</span>

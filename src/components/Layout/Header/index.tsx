@@ -139,7 +139,7 @@ const Header: React.FC = () => {
               </div>
             )}
             <a
-              href="https://discord.com/invite/KQgazMz5"
+              href="https://discord.gg/nvhrB6vJCF"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden lg:inline-flex flex-row items-center justify-center text-darkmode hover:bg-transparent hover:text-primary border border-primary px-4 py-3 rounded-2xl gap-2 text-xl font-semibold whitespace-nowrap"
