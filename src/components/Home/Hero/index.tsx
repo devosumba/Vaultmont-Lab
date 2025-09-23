@@ -162,7 +162,9 @@ const Hero = () => {
                 onClick={() => {
                   const el = document.getElementById('pricing');
                   if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const yOffset = -80; // adjust for sticky header height
+                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                   } else {
                     window.location.hash = '#pricing';
                   }
