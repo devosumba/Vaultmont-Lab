@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 // Typing animation for 'trading'
 function TypingTrading() {
-  const words = ["trading", "investing"];
+  const words = ["Trading", "Investing"];
   const [displayed, setDisplayed] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
   const [wordIdx, setWordIdx] = useState(0);
@@ -56,7 +56,7 @@ function TypingTrading() {
       <span style={{
         display: 'inline-block',
         width: '1ch',
-        color: '#13db7a',
+        color: '#ffffff',
         fontWeight: 600,
         opacity: cursorVisible ? 1 : 0,
         animation: 'blink 1s step-end infinite'
@@ -133,23 +133,14 @@ const Hero = () => {
       <div className="container mx-auto lg:max-w-screen-xl px-4">
         <div className="grid grid-cols-12">
           <motion.div {...leftAnimation} className="lg:col-span-5 col-span-12">
-            <div className="flex gap-6 items-center lg:justify-start justify-center mb-5 mt-24">
-              <Image
-                src={`${getImagePrefix()}images/icons/icon-bag.svg`}
-                alt="icon"
-                width={40}
-                height={40}
-              />
-              <div className="flex flex-col items-start">
-                {/* Typing animation for 'trading' */}
-                <span className="text-white sm:text-28 text-18">
-                  Master{' '}
-                  <span style={{ position: 'relative', display: 'inline-block' }}>
-                    <TypingTrading />
-                  </span>
-                  {' '}with proven strategies,
+            <div className="flex lg:justify-start justify-center mb-5 mt-24">
+              <span className="text-white sm:text-28 text-18">
+                Master{' '}
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                  <TypingTrading />
                 </span>
-              </div>
+                {' '}With Proven Strategies,
+              </span>
             </div>
             <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
               Exclusive Resources & <span style={{color: '#13db7a'}}>a Perfoming </span> Community!{' '}
