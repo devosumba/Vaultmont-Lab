@@ -57,7 +57,7 @@ export default function FAQ() {
               <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 leading-tight">Expert Minds.<br />Real Market Wins.</h2>
             </div>
             <div className="md:max-w-lg text-gray-300 text-lg md:text-xl leading-relaxed">
-              Meet the team behind <span className="font-semibold text-white">Vaultmont</span>, a group of passionate traders committed to empowering your trading success with innovation, insight, and expertise.
+              Meet the team behind <span className="font-semibold text-white">Vaultmont</span>, a group of market-proven traders with real wins, here to fuel your success.
             </div>
           </div>
           <div className="mb-6">
@@ -117,7 +117,9 @@ export default function FAQ() {
       </section>
       {/* Pricing Section */}
       <section className="py-12 bg-darkmode flex flex-col items-center">
-        <h2 className="font-medium text-3xl md:text-4xl text-center text-white mb-10">Membership Pricing</h2>
+        <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide">{'{ PRICING }'}</div>
+  <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 leading-tight text-center">Discover Our Payment Plans</h2>
+  <p className="text-gray-300 text-lg md:text-xl text-center mb-10 max-w-2xl">Explore tailored subscription options that balance flexibility and value, granting you seamless entry into our community.</p>
         <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Monthly Membership */}
           <div className="bg-[#181818] rounded-2xl border border-[#232323] p-8 flex flex-col items-center shadow-lg min-w-[280px] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
