@@ -73,9 +73,10 @@ const Hero = () => {
                 width={40}
                 height={40}
               />
-              <p className="text-white sm:text-28 text-18 mb-0">
-                Master trading with <span style={{color: '#13db7a'}}>proven strategies,</span>
-              </p>
+              <div className="flex flex-col items-start">
+                {/* Removed 'JUNO' for clean layout */}
+                <span className="text-white sm:text-28 text-18">Master trading with proven strategies,</span>
+              </div>
             </div>
             <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
               Exclusive Resources & <span style={{color: '#13db7a'}}>a Perfoming </span> Community!{' '}
@@ -120,12 +121,6 @@ const Hero = () => {
           </div>
           <div className="w-full flex flex-row flex-wrap items-center justify-center gap-12">
             <div className="flex items-center gap-2">
-              <img src="/images/partners/tealstreet.svg" alt="Tealstreet" className="h-8 opacity-70" />
-              <span className="text-gray-400 text-xl font-bold">Tealstreet</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src="/images/partners/too.svg" alt="Too" className="h-8 opacity-70" />
-              <span className="text-gray-400 text-xl font-bold">Too°</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-gray-400 text-3xl font-extrabold">BloFin</span>
