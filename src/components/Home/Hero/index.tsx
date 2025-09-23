@@ -1,4 +1,71 @@
 "use client";
+import React, { useEffect, useState, useRef, useCallback } from "react";
+// Typing animation for 'trading'
+function TypingTrading() {
+  const words = ["trading", "investing"];
+  const [displayed, setDisplayed] = useState("");
+  const [cursorVisible, setCursorVisible] = useState(true);
+  const [wordIdx, setWordIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    let timeout;
+    if (typing) {
+      if (charIdx < words[wordIdx].length) {
+        timeout = setTimeout(() => {
+          setDisplayed(words[wordIdx].slice(0, charIdx + 1));
+          setCharIdx(charIdx + 1);
+        }, 200);
+      } else {
+        timeout = setTimeout(() => {
+          setTyping(false);
+        }, 1000);
+      }
+    } else {
+      if (charIdx > 0) {
+        timeout = setTimeout(() => {
+          setDisplayed(words[wordIdx].slice(0, charIdx - 1));
+          setCharIdx(charIdx - 1);
+        }, 100);
+      } else {
+        timeout = setTimeout(() => {
+          setTyping(true);
+          setWordIdx((wordIdx + 1) % words.length);
+        }, 500);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [charIdx, typing, wordIdx, words]);
+
+  useEffect(() => {
+    const blink = setInterval(() => {
+      setCursorVisible(v => !v);
+    }, 500);
+    return () => clearInterval(blink);
+  }, []);
+  useEffect(() => {
+    const blink = setInterval(() => {
+      setCursorVisible(v => !v);
+    }, 500);
+    return () => clearInterval(blink);
+  }, []);
+  return (
+    <>
+      <span style={{ color: '#13db7a', fontWeight: 600 }}>{displayed}</span>
+      <span style={{
+        display: 'inline-block',
+        width: '1ch',
+        color: '#13db7a',
+        fontWeight: 600,
+        opacity: cursorVisible ? 1 : 0,
+        animation: 'blink 1s step-end infinite'
+      }}>
+        |
+      </span>
+    </>
+  );
+}
 // ...existing code...
 import Slider from "react-slick";
 
@@ -8,7 +75,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import BuyCrypto from "./buy-form";
 import SellCrypto from "./sell-form";
-import { useEffect, useRef, useState, useCallback } from "react";
+// (already imported above)
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { getImagePrefix } from "@/utils/utils";
 import FAQ from "@/components/Home/FAQ";
@@ -74,8 +141,14 @@ const Hero = () => {
                 height={40}
               />
               <div className="flex flex-col items-start">
-                {/* Removed 'JUNO' for clean layout */}
-                <span className="text-white sm:text-28 text-18">Master trading with proven strategies,</span>
+                {/* Typing animation for 'trading' */}
+                <span className="text-white sm:text-28 text-18">
+                  Master{' '}
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <TypingTrading />
+                  </span>
+                  {' '}with proven strategies,
+                </span>
               </div>
             </div>
             <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
@@ -106,7 +179,7 @@ const Hero = () => {
           <motion.div {...rightAnimation} className="col-span-7 lg:block hidden">
             <div className="ml-20 -mr-64">
               <Image
-                src={`${getImagePrefix()}images/hero/banner2.svg`}
+                src="/images/hero/banner2.png"
                 alt="Banner"
                 width={1150}
                 height={1150}
