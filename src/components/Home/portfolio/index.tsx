@@ -131,19 +131,6 @@ const Portfolio = () => {
                     </h4>
                   </td>
                 </tr>
-                {/* Add 24/7 Trading Community point */}
-                <tr className="border-b border-dark_border border-opacity-10">
-                  <td className="py-2">
-                    <div className="flex items-center justify-center">
-                      <Icon icon="mdi:check-circle-outline" color="#A3A3A3" width={32} height={32} />
-                    </div>
-                  </td>
-                  <td className="py-2">
-                    <h4 className="text-muted sm:text-28 text-22 ml-5">
-                      24/7 Trading Community
-                    </h4>
-                  </td>
-                </tr>
               </tbody>
             </table>
           </motion.div>

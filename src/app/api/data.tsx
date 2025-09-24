@@ -108,7 +108,6 @@ export const upgradeData: { title: string }[] = [
   { title: "Downloadable Tools" },
   { title: "On-Demand Investment Library" },
   { title: "1:1 Mentorship" },
-  { title: "Weekly Investment Lessons" },
   { title: "24/7 Investment Community" },
 ];
 
