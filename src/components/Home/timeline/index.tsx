@@ -1,9 +1,32 @@
 "use client";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 import { timelineData } from "@/app/api/data";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { getImagePrefix } from "@/utils/utils";
+
+function TypingFeatures() {
+  const text = "< OUR FEATURES >";
+  const [displayed, setDisplayed] = useState("");
+  // Removed cursor logic
+  useEffect(() => {
+    let idx = 0;
+    setDisplayed("");
+    const interval = setInterval(() => {
+      setDisplayed(text.slice(0, idx + 1));
+      idx++;
+      if (idx === text.length) clearInterval(interval);
+    }, 35); // fast typing speed
+    return () => {
+      clearInterval(interval);
+    };
+  }, [/* key will be passed as prop */]);
+  return (
+    <span style={{ color: '#13db7a' }} className="text-lg font-semibold tracking-wide">{displayed}</span>
+  );
+}
+
 
 const TimeLine = () => {
   const ref = useRef(null);
@@ -14,6 +37,12 @@ const TimeLine = () => {
     animate: inView ? { y: 0, opacity: 1 } : { y: "-100%", opacity: 0 },
     transition: { duration: 0.6, delay: 0.4 },
   };
+  const [animationKey, setAnimationKey] = useState(0);
+  useEffect(() => {
+    if (inView) {
+      setAnimationKey(prev => prev + 1);
+    }
+  }, [inView]);
   return (
     <section className="md:pt-40 pt-9" id="development">
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md lg:px-16 px-4">
@@ -24,12 +53,15 @@ const TimeLine = () => {
             transition={{ duration: 0.6 }}
           >
 
-            <h2 className="text-white sm:text-40 text-30 font-medium lg:w-80% mx-auto mb-20">
+            <div className="w-full text-center mb-2">
+              <TypingFeatures key={animationKey} />
+            </div>
+            <h2 className="text-white sm:text-40 text-30 font-medium lg:w-80% mx-auto mb-6">
               Learn. Invest.
               <span style={{ color: '#13db7a' }}> Trade!</span>
             </h2>
             <p className="text-muted sm:text-28 text-18 mb-9">
-              Learn how to invest, trade, and grow your wealth with confidence. From  <span style={{ color: '#13db7a' }}>Bonds to ETFs, Stocks to Derivatives,</span> we give you the knowledge and structure to turn learning into results.
+              Learn how to invest, trade, and grow your wealth with confidence. From  <span style={{ color: '#13db7a' }}>Bonds to ETFs, Stocks to Derivatives,</span> we give you the knowledge and structure to unlock profitability.
             </p>
           </motion.div>
           <motion.div
@@ -98,44 +130,80 @@ const TimeLine = () => {
                 </div>
               </div>
               <div className="absolute lg:bottom-48 bottom-36 lg:right-0 -right-20 w-72 flex items-center gap-6">
-                <div className="bg-light_grey bg-opacity-45 backdrop-blur-sm px-6 py-2 h-fit rounded-full">
+                <div className="bg-light_grey bg-opacity-45 backdrop-blur-sm p-6 h-fit rounded-full flex items-center justify-center">
                   <Image
                     src= {`${getImagePrefix()}images/timeline/icon-support.svg`}
-                    alt="Scale and support"
+                    alt="Mentorship"
                     width={44}
                     height={44}
-                    className="w-16 h-16"
+                    className="w-[44px] h-[44px]"
                   />
                 </div>
                 <div className="text-left">
                   <h5 className="text-muted text-nowrap text-28 mb-3">
-                     Mentorship
+                    Mentorship
                   </h5>
-                  <p className="text-18 text-muted text-opacity-60">
-                    Interactive Livestreams
-                  </p>
                 </div>
               </div>
             </div>
-            <div className="grid sm:grid-cols-2 gap-8 md:hidden">
-              {timelineData.map((item, index) => (
-                <div key={index} className="flex items-center gap-6">
-                  <div className="bg-light_grey bg-opacity-45 p-6 rounded-full">
-                    <Image
-                      src= {`${getImagePrefix()}${item.icon}`}
-                      alt={item.title}
-                      width={44}
-                      height={44}
-                    />
-                  </div>
-                  <div className="text-start">
-                    <h4 className="text-28 text-muted mb-2">{item.title}</h4>
-                    <p className="text-muted text-opacity-60 text-18">
-                      {item.text}
-                    </p>
-                  </div>
+            <div className="grid grid-cols-1 gap-6 md:hidden">
+              {/* Mobile: Only show the four main points with their icons */}
+              <div className="flex items-center gap-6">
+                <div className="bg-light_grey bg-opacity-45 p-6 rounded-full flex items-center justify-center">
+                  <Image
+                    src={`${getImagePrefix()}images/timeline/icon-planning.svg`}
+                    alt="Investment Literacy"
+                    width={44}
+                    height={44}
+                    className="w-[44px] h-[44px]"
+                  />
                 </div>
-              ))}
+                <div className="text-start">
+                  <h4 className="text-28 text-muted mb-2">Investment Literacy</h4>
+                </div>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="bg-light_grey bg-opacity-45 p-6 rounded-full flex items-center justify-center">
+                  <Image
+                    src={`${getImagePrefix()}images/timeline/icon-refinement.svg`}
+                    alt="Trading Mastery"
+                    width={44}
+                    height={44}
+                    className="w-[44px] h-[44px]"
+                  />
+                </div>
+                <div className="text-start">
+                  <h4 className="text-28 text-muted mb-2">Trading Mastery</h4>
+                </div>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="bg-light_grey bg-opacity-45 p-6 rounded-full flex items-center justify-center">
+                  <Image
+                    src={`${getImagePrefix()}images/timeline/icon-prototype.svg`}
+                    alt="Live Market & Trade Insights"
+                    width={44}
+                    height={44}
+                    className="w-[44px] h-[44px]"
+                  />
+                </div>
+                <div className="text-start">
+                  <h4 className="text-28 text-muted mb-2">Live Market & Trade Insights</h4>
+                </div>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="bg-light_grey bg-opacity-45 p-6 rounded-full flex items-center justify-center">
+                  <Image
+                    src={`${getImagePrefix()}images/timeline/icon-support.svg`}
+                    alt="Mentorship"
+                    width={44}
+                    height={44}
+                    className="w-[44px] h-[44px]"
+                  />
+                </div>
+                <div className="text-start">
+                  <h4 className="text-28 text-muted mb-2">Mentorship</h4>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

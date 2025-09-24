@@ -31,7 +31,11 @@ const Work = () => {
     },
     {
       icon: "/images/icons/icon-Services.svg",
-      text: "Trading & Investing Hub",
+  text: "Trading & Investing Track",
+    },
+    {
+      icon: "/images/timeline/icon-support.svg",
+      text: "Interactive Livestream",
     },
   ];
 
@@ -50,7 +54,7 @@ const Work = () => {
             <div style={{ height: '16px' }}></div>
             <p className="sm:text-28 text-18 text-white">
               Vaultmont Wealth Lab is your all-in-one ecosystem for
-              <span style={{ color: '#13db7a' }}> mastering trading and investing.</span> Learn proven strategies, access exclusive resources, and connect with a high-performance community where knowledge becomes earnings..
+              <span style={{ color: '#13db7a' }}> mastering trading and investing.</span> Learn proven strategies, access exclusive resources, and connect with a high-performance community where knowledge becomes earnings.
             </p>
             
             <div className="grid md:grid-cols-2 gap-7 mt-11">

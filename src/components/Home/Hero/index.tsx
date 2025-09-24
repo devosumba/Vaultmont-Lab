@@ -39,17 +39,12 @@ function TypingTrading() {
   }, [charIdx, typing, wordIdx, words]);
 
   useEffect(() => {
-    const blink = setInterval(() => {
-      setCursorVisible(v => !v);
+    const cursorInterval = setInterval(() => {
+      setCursorVisible((v) => !v);
     }, 500);
-    return () => clearInterval(blink);
+    return () => clearInterval(cursorInterval);
   }, []);
-  useEffect(() => {
-    const blink = setInterval(() => {
-      setCursorVisible(v => !v);
-    }, 500);
-    return () => clearInterval(blink);
-  }, []);
+
   return (
     <>
       <span style={{ color: '#13db7a', fontWeight: 600 }}>{displayed}</span>
@@ -151,10 +146,10 @@ const Hero = () => {
                 href="https://discord.gg/nvhrB6vJCF"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg text-21 font-medium hover:bg-transparent hover:text-primary text-darkmode py-2 px-7 z-50"
-                style={{ backgroundColor: '#13db7a', border: '2px solid #13db7a', display: 'inline-block', textAlign: 'center' }}
+                className="bg-[#13db7a] text-black px-8 py-3 rounded-lg font-medium text-18 transition hover:bg-[#13db7a]/80 flex items-center justify-center"
+                style={{ border: '2px solid #13db7a', display: 'inline-block', textAlign: 'center' }}
               >
-                ENTER THE LAB
+                Start Your Journey
               </a>
               <button
                 className="bg-transparent rounded-lg text-21 font-medium py-2 px-7 transition-colors duration-200"
