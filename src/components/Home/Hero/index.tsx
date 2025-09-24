@@ -191,23 +191,25 @@ const Hero = () => {
         <div className="w-full flex flex-col items-center justify-center py-8">
           <div className="text-center mb-6">
             <span className="text-primary text-lg font-semibold tracking-wide">&lt; OUR TRUSTED PARTNERS &gt;</span>
+            <div style={{ height: '2.5rem' }}></div>
           </div>
           <div className="w-full flex flex-row flex-wrap items-center justify-center gap-12">
-            <div className="flex items-center gap-2">
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-gray-400 text-3xl font-extrabold">BloFin</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-gray-400 text-2xl font-bold">NINJATRADER</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src="/images/partners/tealstreet.svg" alt="Tealstreet" className="h-8 opacity-70" />
-              <span className="text-gray-400 text-xl font-bold">Tealstreet</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src="/images/partners/too.svg" alt="Too" className="h-8 opacity-70" />
-              <span className="text-gray-400 text-xl font-bold">Too°</span>
+            <div style={{ overflow: 'hidden', width: '100%', display: 'flex', justifyContent: 'center' }}>
+              <motion.div
+                animate={{ x: [0, -600] }}
+                transition={{ duration: 8, repeat: Infinity, repeatType: "loop", ease: "linear" }}
+                style={{ display: 'flex', gap: '3rem', width: 'max-content', alignItems: 'center' }}
+              >
+                {Array(2).fill(["3.svg", "1.svg", "2.svg"]).flat().map((logo, idx) => (
+                  <img
+                    key={idx}
+                    src={`/images/Our Trusted Partners/${logo}`}
+                    alt={`Partner ${logo.charAt(0)}`}
+                    style={{ margin: '0 1.5rem' }}
+                    className="h-10 opacity-80"
+                  />
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>
