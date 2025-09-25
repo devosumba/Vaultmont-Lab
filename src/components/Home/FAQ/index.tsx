@@ -1,6 +1,31 @@
 "use client";
 import React from "react";
 
+// Typing animation for '{ PRICING }' that loops infinitely
+const TypingPricing: React.FC = () => {
+  const text = "{ PRICING }";
+  const [displayed, setDisplayed] = React.useState("");
+  const [charIdx, setCharIdx] = React.useState(0);
+  React.useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (charIdx <= text.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(text.slice(0, charIdx));
+        setCharIdx(charIdx + 1);
+      }, 90);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayed("");
+        setCharIdx(0);
+      }, 700);
+    }
+    return () => clearTimeout(timeout);
+  }, [charIdx, text]);
+  return (
+    <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide text-center w-full">{displayed}</div>
+  );
+};
+
 
 // Typing animation for '{ OUR TEAM }' that loops infinitely
 
@@ -197,7 +222,7 @@ export default function FAQ() {
   {/* Pricing Section */}
   <section className="py-12 bg-darkmode flex flex-col items-center">
     <div id="pricing">
-  <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide text-center w-full">{'{ PRICING }'}</div>
+  <TypingPricing />
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-4 leading-tight text-center">Discover Our Payment Plans</h2>
       <p className="text-gray-300 text-base sm:text-lg md:text-xl text-center mb-8 sm:mb-10 max-w-2xl mx-auto">Explore tailored subscription options that balance flexibility and value, granting you seamless entry into our community.</p>
     </div>
@@ -213,12 +238,14 @@ export default function FAQ() {
             <div className="w-full mb-6">
               <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Daily Live Streams</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Market Analysis</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Educational Material</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Exclusive Discount & Giveaways</li>
-                <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Journal Access</li>
-                <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Lessons & Weekly Q&A</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Daily Bias</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Market Analysis & Weekly Outlook</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Learning Library & Resources</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
+                <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Live Trading Sessions</li>
+                <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Journal Access & Playbooks</li>
+                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Investment Literacy (Bonds,<br/>Stocks, ETFs, etc)</span></li>
+                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring)</span></li>
               </ul>
             </div>
             <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
@@ -235,12 +262,12 @@ export default function FAQ() {
             <div className="w-full mb-6">
               <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Daily Live Streams</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Market Analysis</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Educational Material</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Exclusive Discounts & Giveaways</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Journal Access</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Daily Bias</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Market Analysis & Weekly Outlook</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Learning Library & Resources</li>
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Live Trading Sessions</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Journal Access & Playbooks</li>
               </ul>
             </div>
             <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
@@ -256,11 +283,11 @@ export default function FAQ() {
             <div className="w-full mb-6">
               <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Daily Live Streams</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Market Analysis</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Educational Material</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Exclusive Discounts & Giveaways</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Journal Access</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Daily Bias</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Market Analysis & Weekly Outlook</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Learning Library & Resources</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Live Trading Sessions</li>
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
               </ul>
             </div>
