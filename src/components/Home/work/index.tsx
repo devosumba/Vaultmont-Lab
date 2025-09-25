@@ -80,7 +80,7 @@ const Work = () => {
                 alt="image"
                 width={600}
                 height={425}
-                className="lg:w-full"
+                className="lg:w-full ml-12"
               />
             </div>
           </motion.div>

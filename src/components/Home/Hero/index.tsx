@@ -194,7 +194,7 @@ const Hero = () => {
         <div className="w-full flex flex-col items-center justify-center py-8">
           <div className="text-center mb-6">
             <span className="text-primary text-lg font-semibold tracking-wide">&lt; OUR TRUSTED PARTNERS &gt;</span>
-            <div style={{ height: '2.5rem' }}></div>
+            {/* Spacer removed to minimize space */}
           </div>
           <div className="w-full flex flex-row flex-wrap items-center justify-center gap-12">
             <div style={{ overflow: 'hidden', width: '100%', display: 'flex', justifyContent: 'center' }}>
@@ -203,7 +203,7 @@ const Hero = () => {
                 transition={{ duration: 8, repeat: Infinity, repeatType: "loop", ease: "linear" }}
                 style={{ display: 'flex', gap: '3rem', width: 'max-content', alignItems: 'center' }}
               >
-                {Array(2).fill(["3.svg", "1.svg", "2.svg"]).flat().map((logo, idx) => (
+                {Array(2).fill(["3.svg", "Our Trusted Partners4.svg", "2.svg"]).flat().map((logo, idx) => (
                   <img
                     key={idx}
                     src={`/images/Our Trusted Partners/${logo}`}

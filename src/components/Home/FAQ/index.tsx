@@ -1,6 +1,33 @@
 "use client";
 import React from "react";
 
+
+// Typing animation for '{ OUR TEAM }' that loops infinitely
+
+const TypingTeam: React.FC = () => {
+  const text = "{ OUR TEAM }";
+  const [displayed, setDisplayed] = React.useState("");
+  const [charIdx, setCharIdx] = React.useState(0);
+  React.useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (charIdx <= text.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(text.slice(0, charIdx));
+        setCharIdx(charIdx + 1);
+      }, 90);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayed("");
+        setCharIdx(0);
+      }, 700);
+    }
+    return () => clearTimeout(timeout);
+  }, [charIdx, text]);
+  return (
+  <span className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide mb-8">{displayed}</span>
+  );
+};
+
 const faqs = [
   {
     question: "What is the difference between trading and investing?",
@@ -49,15 +76,15 @@ export default function FAQ() {
   return (
     <>
       {/* Our Team Section */}
-      <section className="py-14 bg-darkmode flex flex-col items-center">
+  <section className="py-14 flex flex-col items-center">
         <div className="w-full max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-8">
             <div>
-              <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide">{'{ OUR TEAM }'}</div>
+              <TypingTeam />
               <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 leading-tight">Expert Minds.<br />Real Market Wins.</h2>
             </div>
             <div className="md:max-w-lg text-gray-300 text-lg md:text-xl leading-relaxed">
-              Meet the team behind <span className="font-semibold text-white">Vaultmont</span>, a group of market-proven traders with real wins, here to fuel your success.
+              Meet the team behind <span className="font-semibold text-white">Vaultmont</span>, a group of market-proven traders & analysts with real wins, here to fuel your success.
             </div>
           </div>
           <div className="mb-6">
@@ -109,6 +136,58 @@ export default function FAQ() {
                 <div className="flex flex-col items-center w-full">
                   <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">BRIAN <span className="text-gray-400">| Mentor</span></span>
                   <span className="text-gray-400 text-base md:text-lg text-center w-full">Equities &amp; ETF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Second Row of Team Members */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
+            {/* Team Member NEPHAT */}
+            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
+              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
+                <img src="/images/team/Nephat_Team Avatar.svg" alt="NEPHAT" className="object-cover w-full h-full" />
+              </div>
+              <div className="flex items-center w-full justify-center gap-2">
+                <div className="flex flex-col items-center w-full">
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">NEPHAT <span className="text-gray-400">| Mentor</span></span>
+                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Bonds & Fixed Income</span>
+                </div>
+              </div>
+            </div>
+            {/* Team Member OSUMBA */}
+            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
+              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
+                <img src="/images/team/Osumba_Team Avatar.svg" alt="OSUMBA" className="object-cover w-full h-full" />
+              </div>
+              <div className="flex items-center w-full justify-center gap-2">
+                <div className="flex flex-col items-center w-full">
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">OSUMBA <span className="text-gray-400">| Techie</span></span>
+                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Systems & Innovation</span>
+                </div>
+              </div>
+            </div>
+            {/* Team Member FID */}
+            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
+              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
+                <img src="/images/team/FID_Team Avatar.svg" alt="FID" className="object-cover w-full h-full" />
+              </div>
+              <div className="flex items-center w-full justify-center gap-2">
+                <div className="flex flex-col items-center w-full">
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">FID <span className="text-gray-400">| Team</span></span>
+                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Community Manager</span>
+                </div>
+              </div>
+            </div>
+            {/* Team Member EDD */}
+            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
+              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
+                <img src="/images/team/EDD_Team Avatar.svg" alt="EDD" className="object-cover w-full h-full" />
+              </div>
+              <div className="flex items-center w-full justify-center gap-2">
+                <div className="flex flex-col items-center w-full">
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">EDD <span className="text-gray-400">| Team</span></span>
+                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Brand & Marketing</span>
                 </div>
               </div>
             </div>

@@ -1,4 +1,46 @@
 "use client";
+function TypingFeaturesLoop() {
+  const text = "< OUR FEATURES >";
+  const [displayed, setDisplayed] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [charIdx, setCharIdx] = useState(0);
+  const [pause, setPause] = useState(false);
+
+  useEffect(() => {
+    let timeout;
+    if (pause) {
+      timeout = setTimeout(() => {
+        setPause(false);
+        setIsDeleting((prev) => !prev);
+      }, 700);
+      return () => clearTimeout(timeout);
+    }
+    if (!isDeleting) {
+      if (charIdx < text.length) {
+        timeout = setTimeout(() => {
+          setDisplayed(text.slice(0, charIdx + 1));
+          setCharIdx(charIdx + 1);
+        }, 65);
+      } else {
+        setPause(true);
+      }
+    } else {
+      if (charIdx > 0) {
+        timeout = setTimeout(() => {
+          setDisplayed(text.slice(0, charIdx - 1));
+          setCharIdx(charIdx - 1);
+        }, 40);
+      } else {
+        setPause(true);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [charIdx, isDeleting, pause]);
+
+  return (
+    <span style={{ color: '#13db7a' }} className="text-lg font-semibold tracking-wide">{displayed}</span>
+  );
+}
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { timelineData } from "@/app/api/data";
@@ -6,26 +48,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { getImagePrefix } from "@/utils/utils";
 
-function TypingFeatures() {
-  const text = "< OUR FEATURES >";
-  const [displayed, setDisplayed] = useState("");
-  // Removed cursor logic
-  useEffect(() => {
-    let idx = 0;
-    setDisplayed("");
-    const interval = setInterval(() => {
-      setDisplayed(text.slice(0, idx + 1));
-      idx++;
-      if (idx === text.length) clearInterval(interval);
-    }, 35); // fast typing speed
-    return () => {
-      clearInterval(interval);
-    };
-  }, [/* key will be passed as prop */]);
-  return (
-    <span style={{ color: '#13db7a' }} className="text-lg font-semibold tracking-wide">{displayed}</span>
-  );
-}
 
 
 const TimeLine = () => {
@@ -54,7 +76,7 @@ const TimeLine = () => {
           >
 
             <div className="w-full text-center mb-2">
-              <TypingFeatures key={animationKey} />
+              <TypingFeaturesLoop />
             </div>
             <h2 className="text-white sm:text-40 text-30 font-medium lg:w-80% mx-auto mb-6">
               Learn. Invest.
