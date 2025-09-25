@@ -1,43 +1,61 @@
 "use client";
 import React, { useEffect, useState, useRef, useCallback } from "react";
-// Typing animation for 'trading'
-function TypingTrading() {
-  const words = ["Trading", "Investing"];
-  const [displayed, setDisplayed] = useState("");
-  const [cursorVisible, setCursorVisible] = useState(true);
-  const [wordIdx, setWordIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [typing, setTyping] = useState(true);
+// Typewriter animation for 'Trading' and 'Investing' in a seamless loop
+// import only once at the top
+
+const typewriterWords = ["Trading", "Investing"];
+const TYPING_SPEED = 100;
+const DELETING_SPEED = 60;
+const PAUSE_AFTER_TYPE = 700;
+const PAUSE_AFTER_DELETE = 400;
+
+function Typewriter() {
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [pause, setPause] = useState(false);
 
   useEffect(() => {
     let timeout;
-    if (typing) {
-      if (charIdx < words[wordIdx].length) {
+    const currentWord = typewriterWords[wordIndex % typewriterWords.length];
+    if (pause) {
+      timeout = setTimeout(() => {
+        setPause(false);
+        setIsDeleting((prev) => !prev);
+        if (!isDeleting) {
+          setCharIndex(currentWord.length);
+        } else {
+          setCharIndex(0);
+          setWordIndex((prev) => (prev + 1) % typewriterWords.length);
+        }
+      }, isDeleting ? PAUSE_AFTER_DELETE : PAUSE_AFTER_TYPE);
+      return () => clearTimeout(timeout);
+    }
+    if (!isDeleting) {
+      if (charIndex < currentWord.length) {
         timeout = setTimeout(() => {
-          setDisplayed(words[wordIdx].slice(0, charIdx + 1));
-          setCharIdx(charIdx + 1);
-        }, 200);
+          setText(currentWord.substring(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        }, TYPING_SPEED);
       } else {
-        timeout = setTimeout(() => {
-          setTyping(false);
-        }, 1000);
+        setPause(true);
       }
     } else {
-      if (charIdx > 0) {
+      if (charIndex > 0) {
         timeout = setTimeout(() => {
-          setDisplayed(words[wordIdx].slice(0, charIdx - 1));
-          setCharIdx(charIdx - 1);
-        }, 100);
+          setText(currentWord.substring(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        }, DELETING_SPEED);
       } else {
-        timeout = setTimeout(() => {
-          setTyping(true);
-          setWordIdx((wordIdx + 1) % words.length);
-        }, 500);
+        setPause(true);
       }
     }
     return () => clearTimeout(timeout);
-  }, [charIdx, typing, wordIdx, words]);
+  }, [charIndex, isDeleting, pause, wordIndex]);
 
+  // Blinking cursor
+  const [cursorVisible, setCursorVisible] = useState(true);
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setCursorVisible((v) => !v);
@@ -46,21 +64,13 @@ function TypingTrading() {
   }, []);
 
   return (
-    <>
-      <span style={{ color: '#13db7a', fontWeight: 600 }}>{displayed}</span>
-      <span style={{
-        display: 'inline-block',
-        width: '1ch',
-        color: '#ffffff',
-        fontWeight: 600,
-        opacity: cursorVisible ? 1 : 0,
-        animation: 'blink 1s step-end infinite'
-      }}>
-        |
-      </span>
-    </>
+    <span className="text-green-500 font-semibold">
+      {text}
+      <span style={{ color: '#fff', opacity: cursorVisible ? 1 : 0 }}>|</span>
+    </span>
   );
 }
+// ...existing code...
 // ...existing code...
 import Slider from "react-slick";
 
@@ -131,9 +141,7 @@ const Hero = () => {
             <div className="flex lg:justify-start justify-center mb-5 mt-24">
               <span className="text-white sm:text-28 text-18">
                 Master{' '}
-                <span style={{ position: 'relative', display: 'inline-block' }}>
-                  <TypingTrading />
-                </span>
+                <Typewriter />
                 {' '}With Proven Strategies,
               </span>
             </div>
