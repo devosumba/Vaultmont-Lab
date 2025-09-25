@@ -1,4 +1,5 @@
 "use client";
+                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring)</span></li>
 import React from "react";
 
 // Typing animation for '{ PRICING }' that loops infinitely
@@ -245,17 +246,17 @@ export default function FAQ() {
                 <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Live Trading Sessions</li>
                 <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Journal Access & Playbooks</li>
                 <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Investment Literacy (Bonds,<br/>Stocks, ETFs, etc)</span></li>
-                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring)</span></li>
+                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring</span></li>
               </ul>
             </div>
             <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
           </div>
           {/* Biannual Membership */}
             <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
-              <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">Most Popular - save 30%</span>
-              <div className="text-[#13db7a] text-xl font-semibold mb-2">Biannual Membership</div>
+                <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">Most Popular - save 33%</span>
+              <div className="text-[#13db7a] text-xl font-semibold mb-2">Semi-Annual Membership</div>
             <div className="flex items-end mb-2">
-              <span className="text-white text-5xl font-bold mr-2">$840</span>
+                <span className="text-white text-5xl font-bold mr-2">$799</span>
               <span className="text-gray-400 text-lg">/ 6 Month</span>
             </div>
             <hr className="border-t border-[#232323] w-full my-6" />
@@ -268,6 +269,8 @@ export default function FAQ() {
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Live Trading Sessions</li>
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Journal Access & Playbooks</li>
+                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Investment Literacy (Bonds,<br/>Stocks, ETFs, etc)</span></li>
+                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring</span></li>
               </ul>
             </div>
             <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
@@ -276,7 +279,7 @@ export default function FAQ() {
           <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
             <div className="text-[#13db7a] text-xl font-semibold mb-2 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">Annual Membership</div>
             <div className="flex items-end mb-2">
-              <span className="text-white text-5xl font-bold mr-2">$1,400</span>
+              <span className="text-white text-5xl font-bold mr-2">$1,300</span>
               <span className="text-gray-400 text-lg">/ 12 Month</span>
             </div>
             <hr className="border-t border-[#232323] w-full my-6" />
@@ -288,7 +291,9 @@ export default function FAQ() {
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Learning Library & Resources</li>
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Live Trading Sessions</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Journal Access & Playbooks</li>
+                <li className="flex items-center text-left gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Investment Literacy (Bonds,<br/>Stocks, ETFs, etc)</li>
+                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Career Track Monitoring</li>
               </ul>
             </div>
             <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
