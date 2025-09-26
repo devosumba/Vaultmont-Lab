@@ -142,7 +142,7 @@ const Hero = () => {
               <span className="text-white sm:text-28 text-18">
                 Master{' '}
                 <Typewriter />
-                {' '}With Proven Strategies,
+                {' '}With Proven Strategies.
               </span>
             </div>
             <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
