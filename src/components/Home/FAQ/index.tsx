@@ -308,7 +308,9 @@ export default function FAQ() {
           <a href="/blog/consistency-over-intensity" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
             <div className="rounded-t-xl overflow-hidden">
               <div className="bg-gradient-to-br from-[#13db7a] to-[#181818] p-6 flex items-center justify-center h-40">
-                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">Consistency Over Intensity</span>
+                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">
+                  Consistency Over Intensity
+                </span>
               </div>
             </div>
             <div className="p-4">
@@ -316,25 +318,30 @@ export default function FAQ() {
               <div className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">Read More</div>
             </div>
           </a>
-          <a href="/markdown/blog/blog_2.mdx" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
+          <a href="/blog/trading-vs-investing" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
             <div className="rounded-t-xl overflow-hidden">
               <div className="bg-gradient-to-br from-[#13db7a] to-[#181818] p-6 flex items-center justify-center h-40">
-                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">How to stay<br/>disciplined ?</span>
+                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">
+                  Trading vs Investing
+  
+                </span>
               </div>
             </div>
             <div className="p-4">
-              <div className="text-white text-lg font-medium mb-2 group-hover:text-[#13db7a] transition-colors duration-300">How to Stay Disciplined as a Trader</div>
+              <div className="text-white text-lg font-medium mb-2 group-hover:text-[#13db7a] transition-colors duration-300">Learn The Difference and Stay Ahead</div>
               <div className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">Read More</div>
             </div>
           </a>
-          <a href="/markdown/blog/blog_3.mdx" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
+          <a href="/blog/why-over-74-percent-of-traders-fail" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
             <div className="rounded-t-xl overflow-hidden">
               <div className="bg-gradient-to-br from-[#13db7a] to-[#181818] p-6 flex items-center justify-center h-40">
-                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">How many trades<br/>should I take per day?</span>
+                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">
+                  Why Over 74% of Traders Fail<br/>
+                </span>
               </div>
             </div>
             <div className="p-4">
-              <div className="text-white text-lg font-medium mb-2 group-hover:text-[#13db7a] transition-colors duration-300">How Many Trades Should I Take Per Day</div>
+              <div className="text-white text-lg font-medium mb-2 group-hover:text-[#13db7a] transition-colors duration-300">Pitfalls to Avoid (and What to Do Instead)</div>
               <div className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">Read More</div>
             </div>
           </a>
