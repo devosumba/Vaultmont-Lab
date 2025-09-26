@@ -17,7 +17,7 @@ function Typewriter() {
   const [pause, setPause] = useState(false);
 
   useEffect(() => {
-    let timeout;
+  let timeout: ReturnType<typeof setTimeout>;
     const currentWord = typewriterWords[wordIndex % typewriterWords.length];
     if (pause) {
       timeout = setTimeout(() => {
