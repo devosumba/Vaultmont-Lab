@@ -219,7 +219,7 @@ export default function FAQ() {
             </div>
           </div>
         </div>
-      </section>
+  </section>
   {/* Pricing Section */}
   <section className="py-12 bg-darkmode flex flex-col items-center">
     <div id="pricing">
@@ -301,18 +301,18 @@ export default function FAQ() {
         </div>
       </section>
       {/* Blog Section (Restored Original) */}
-      <section className="py-12 bg-darkmode flex flex-col items-center">
+  <section className="py-12 bg-darkmode flex flex-col items-center">
         <h2 className="font-medium sm:text-28 text-18 text-center text-white mb-6">Latest blog & news</h2>
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center w-full">
           {/* Blog Card 1 */}
-          <a href="/markdown/blog/blog_1.mdx" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
+          <a href="/blog/consistency-over-intensity" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
             <div className="rounded-t-xl overflow-hidden">
               <div className="bg-gradient-to-br from-[#13db7a] to-[#181818] p-6 flex items-center justify-center h-40">
-                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">How to build<br/>confidence in trading?</span>
+                <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">Consistency Over Intensity</span>
               </div>
             </div>
             <div className="p-4">
-              <div className="text-white text-lg font-medium mb-2 group-hover:text-[#13db7a] transition-colors duration-300">How to Build Confidence in Trading</div>
+              <div className="text-white text-lg font-medium mb-2 group-hover:text-[#13db7a] transition-colors duration-300">Building a Durable Trading Mindset</div>
               <div className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">Read More</div>
             </div>
           </a>
