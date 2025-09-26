@@ -7,7 +7,7 @@ function TypingFeaturesLoop() {
   const [pause, setPause] = useState(false);
 
   useEffect(() => {
-    let timeout;
+  let timeout: ReturnType<typeof setTimeout>;
     if (pause) {
       timeout = setTimeout(() => {
         setPause(false);
