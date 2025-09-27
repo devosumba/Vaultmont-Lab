@@ -249,7 +249,16 @@ export default function FAQ() {
                 <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring</span></li>
               </ul>
             </div>
-            <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
+            <a
+              href="https://whop.com/vaultmont-wealthlab/monthly-membership-9d/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">
+                GET STARTED
+              </button>
+            </a>
           </div>
           {/* Biannual Membership */}
             <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
@@ -273,7 +282,16 @@ export default function FAQ() {
                 <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring</span></li>
               </ul>
             </div>
-            <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
+            <a
+              href="https://whop.com/vaultmont-wealthlab/biannual-membership/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">
+                GET STARTED
+              </button>
+            </a>
           </div>
           {/* Annual Membership */}
           <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
@@ -296,12 +314,32 @@ export default function FAQ() {
                 <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Career Track Monitoring</li>
               </ul>
             </div>
-            <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
+            <a
+              href="https://whop.com/vaultmont-wealthlab/annual-membership-c8/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">
+                GET STARTED
+              </button>
+            </a>
           </div>
+          
         </div>
       </section>
       {/* Blog Section (Restored Original) */}
-  <section className="py-12 bg-darkmode flex flex-col items-center">
+  <section className="pt-2 pb-12 bg-darkmode flex flex-col items-center">
+        <div className="w-full flex justify-center mb-16">
+          <a
+            href="https://discordapp.com/channels/1409224081693474816/1409572846690242691"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base sm:text-lg md:text-xl text-[#13db7a] font-semibold text-center hover:underline transition-colors duration-200"
+          >
+            Explore Crypto & Local Payments
+          </a>
+        </div>
         <h2 className="font-medium sm:text-28 text-18 text-center text-white mb-6">Latest blog & news</h2>
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center w-full">
           {/* Blog Card 1 */}
