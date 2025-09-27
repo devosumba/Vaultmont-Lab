@@ -102,7 +102,7 @@ export default function FAQ() {
   return (
     <>
       {/* Our Team Section */}
-  <section className="py-14 flex flex-col items-center">
+  <section className="py-14 flex flex-col items-center" id="team">
         <div className="w-full max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-8">
             <div>
@@ -389,7 +389,7 @@ export default function FAQ() {
         </div>
       </section>
       {/* FAQ Section */}
-  <section className="pt-12 pb-20 bg-darkmode flex flex-col items-center">
+  <section className="pt-12 pb-20 bg-darkmode flex flex-col items-center" id="faq">
         <h2 className="font-medium sm:text-28 text-18 text-center text-white mb-6">Frequently Asked <span style={{color: '#13db7a'}}>Questions</span></h2>
         <div className="space-y-4 w-full max-w-2xl flex flex-col items-center">
           {faqs.map((faq, idx) => (
