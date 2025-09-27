@@ -16,14 +16,6 @@ const Footer: FC = () => {
             <div className="flex gap-6 items-center mt-8">
               <Link href="#" className="group">
                 <Icon
-                  icon="fa6-brands:facebook-f"
-                  width="24"
-                  height="24"
-                  className="text-white group-hover:text-primary"
-                />
-              </Link>
-              <Link href="#" className="group">
-                <Icon
                   icon="fa6-brands:instagram"
                   width="24"
                   height="24"
@@ -38,14 +30,30 @@ const Footer: FC = () => {
                   className="text-white group-hover:text-primary"
                 />
               </Link>
+              <Link href="#" className="group">
+                <Icon
+                  icon="fa6-brands:youtube"
+                  width="24"
+                  height="24"
+                  className="text-white group-hover:text-primary"
+                />
+              </Link>
+              <Link href="#" className="group">
+                <Icon
+                  icon="fa6-brands:tiktok"
+                  width="24"
+                  height="24"
+                  className="text-white group-hover:text-primary"
+                />
+              </Link>
             </div>
             <h3 className="text-white text-24 font-medium sm:mt-20 mt-12">
               2025 Copright | Vaultmont
             </h3>
             
           </div>
-          <div className="lg:col-span-2 md:col-span-3 col-span-6">
-            <h4 className="text-white mb-4 font-medium text-24">Links</h4>
+          <div className="lg:col-span-2 md:col-span-3 col-span-6 lg:col-start-7 md:col-start-7 sm:col-start-4">
+            <h4 className="mb-4 font-medium text-24" style={{ color: '#13db7a' }}>Navigation</h4>
             <ul>
               {headerData.map((item, index) => (
                 <li key={index} className="pb-4">
@@ -59,23 +67,8 @@ const Footer: FC = () => {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-2 md:col-span-3 col-span-6">
-            <h4 className="text-white mb-4 font-medium text-24">Information</h4>
-            <ul>
-              {footerlabels.map((item, index) => (
-                <li key={index} className="pb-4">
-                  <Link
-                    href={item.herf}
-                    className="text-white hover:text-primary text-17"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="lg:col-span-4 md:col-span-4 col-span-6">
-            <h3 className="text-white text-24 font-medium">Subscribe</h3>
+          <div className="lg:col-span-4 md:col-span-4 col-span-6 lg:col-start-9 md:col-start-9 sm:col-start-7">
+            <h3 className="text-24 font-medium" style={{ color: '#13db7a' }}>Subscribe</h3>
             <p className="text-muted text-opacity-60 text-18 mt-5">
               Subscribe to get the latest
               <br /> news form us
