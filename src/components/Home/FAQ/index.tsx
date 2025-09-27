@@ -329,8 +329,8 @@ export default function FAQ() {
         </div>
       </section>
       {/* Blog Section (Restored Original) */}
-  <section className="pt-2 pb-12 bg-darkmode flex flex-col items-center">
-        <div className="w-full flex justify-center mb-16">
+  <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center">
+        <div className="w-full flex justify-center mb-20">
           <a
             href="https://discordapp.com/channels/1409224081693474816/1409572846690242691"
             target="_blank"
@@ -389,7 +389,7 @@ export default function FAQ() {
         </div>
       </section>
       {/* FAQ Section */}
-  <section className="py-12 bg-darkmode flex flex-col items-center">
+  <section className="pt-12 pb-20 bg-darkmode flex flex-col items-center">
         <h2 className="font-medium sm:text-28 text-18 text-center text-white mb-6">Frequently Asked <span style={{color: '#13db7a'}}>Questions</span></h2>
         <div className="space-y-4 w-full max-w-2xl flex flex-col items-center">
           {faqs.map((faq, idx) => (
