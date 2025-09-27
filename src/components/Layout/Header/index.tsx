@@ -204,27 +204,18 @@ const Header: React.FC = () => {
             {headerData.map((item, index) => (
               <MobileHeaderLink key={index} item={item} />
             ))}
-            <div className="mt-4 flex flex-col space-y-4 w-full">
-              <Link
-                href="#"
-                className="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
-                onClick={() => {
-                  setIsSignInOpen(true);
-                  setNavbarOpen(false);
-                }}
+            <div className="mt-6 flex flex-col space-y-4 w-full">
+              <a
+                href="https://discord.gg/nvhrB6vJCF"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center text-darkmode hover:bg-transparent hover:text-primary border border-primary px-4 py-3 rounded-2xl gap-2 text-lg font-semibold whitespace-nowrap w-full"
+                style={{ backgroundColor: '#13db7a' }}
+                onClick={() => setNavbarOpen(false)}
               >
-                Sign In
-              </Link>
-              <Link
-                href="#"
-                className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-                onClick={() => {
-                  setIsSignUpOpen(true);
-                  setNavbarOpen(false);
-                }}
-              >
-                Sign Up
-              </Link>
+                <Icon icon="mdi:discord" className="text-black text-xl" />
+                <span>ENTER THE LAB</span>
+              </a>
             </div>
           </nav>
         </div>
