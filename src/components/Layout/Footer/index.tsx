@@ -72,7 +72,7 @@ const Footer: FC = () => {
             <ul>
               <li className="pb-4">
                 <Link
-                  href="http://localhost:3000/privacy-policy/"
+                  href="/privacy-policy"
                   className="text-white hover:text-primary text-17"
                 >
                   Privacy Policy
@@ -80,7 +80,7 @@ const Footer: FC = () => {
               </li>
               <li className="pb-4">
                 <Link
-                  href="http://localhost:3000/terms-of-service/"
+                  href="/terms-of-service"
                   className="text-white hover:text-primary text-17"
                 >
                   Terms of Service
@@ -88,7 +88,7 @@ const Footer: FC = () => {
               </li>
               <li className="pb-4">
                 <Link
-                  href="http://localhost:3000/risk-disclosure/"
+                  href="/risk-disclosure"
                   className="text-white hover:text-primary text-17"
                 >
                   Risk Disclosure
@@ -122,7 +122,7 @@ const Footer: FC = () => {
       </div>
       <div className="w-full bg-darkmode">
         <p className="text-xs text-gray-400 leading-relaxed px-4 pb-6 container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
-          All content on TheLabTrading.com is for educational purposes and does not constitute financial/investment advice, a recommendation, or a solicitation to buy or sell any security or derivative. Trading and investing involve substantial risk, including loss of all or more than your initial capital; past performance does not guarantee future outcomes. <Link href="https://www.linkedin.com/in/austine-osumba-689327207/" className="text-primary underline">Website by Osumba</Link>
+          All content on vaultmont.com is for educational purposes and does not constitute financial/investment advice, a recommendation, or a solicitation to buy or sell any security or derivative. Trading and investing involve substantial risk, including loss of all or more than your initial capital; past performance does not guarantee future outcomes. <Link href="https://www.linkedin.com/in/austine-osumba-689327207/" className="text-primary underline">Website by Osumba</Link>
         </p>
       </div>
     </footer>
