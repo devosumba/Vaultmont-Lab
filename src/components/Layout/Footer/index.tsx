@@ -47,7 +47,7 @@ const Footer: FC = () => {
                 />
               </Link>
             </div>
-            <h3 className="text-white text-24 font-medium sm:mt-20 mt-12">
+            <h3 className="text-white text-24 font-medium sm:mt-20 mt-12 whitespace-nowrap">
               2025 Copright | Vaultmont
             </h3>
             
@@ -67,7 +67,36 @@ const Footer: FC = () => {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-4 md:col-span-4 col-span-6 lg:col-start-9 md:col-start-9 sm:col-start-7">
+          <div className="lg:col-span-2 md:col-span-3 col-span-6">
+            <h4 className="mb-4 font-medium text-24" style={{ color: '#13db7a' }}>Legal</h4>
+            <ul>
+              <li className="pb-4">
+                <Link
+                  href="http://localhost:3000/privacy-policy/"
+                  className="text-white hover:text-primary text-17"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li className="pb-4">
+                <Link
+                  href="http://localhost:3000/terms-of-service/"
+                  className="text-white hover:text-primary text-17"
+                >
+                  Terms of Service
+                </Link>
+              </li>
+              <li className="pb-4">
+                <Link
+                  href="http://localhost:3000/risk-disclosure/"
+                  className="text-white hover:text-primary text-17"
+                >
+                  Risk Disclosure
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="lg:col-span-4 md:col-span-4 col-span-6 lg:col-start-11 md:col-start-11 sm:col-start-7">
             <h3 className="text-24 font-medium" style={{ color: '#13db7a' }}>Subscribe</h3>
             <p className="text-muted text-opacity-60 text-18 mt-5">
               Subscribe to get the latest
@@ -90,6 +119,11 @@ const Footer: FC = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full bg-darkmode">
+        <p className="text-xs text-gray-400 leading-relaxed px-4 pb-6 container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
+          All content on TheLabTrading.com is for educational purposes and does not constitute financial/investment advice, a recommendation, or a solicitation to buy or sell any security or derivative. Trading and investing involve substantial risk, including loss of all or more than your initial capital; past performance does not guarantee future outcomes. <Link href="https://www.linkedin.com/in/austine-osumba-689327207/" className="text-primary underline">Website by Osumba</Link>
+        </p>
       </div>
     </footer>
   );
