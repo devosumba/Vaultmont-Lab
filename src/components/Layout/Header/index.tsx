@@ -64,9 +64,19 @@ const Header: React.FC = () => {
   useEffect(() => {
     if (isSignInOpen || isSignUpOpen || navbarOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = navbarOpen ? "0" : "17px"; // Prevent layout shift
     } else {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
     }
+    
+    // Cleanup function to ensure styles are reset
+    return () => {
+      if (!isSignInOpen && !isSignUpOpen && !navbarOpen) {
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+      }
+    };
   }, [isSignInOpen, isSignUpOpen, navbarOpen]);
 
   return (
@@ -170,46 +180,85 @@ const Header: React.FC = () => {
             )}
             <button
               onClick={() => setNavbarOpen(!navbarOpen)}
-              className="block lg:hidden p-2 rounded-lg"
+              className="block lg:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#13db7a]"
               aria-label="Toggle mobile menu"
+              aria-expanded={navbarOpen}
             >
-              <span className="block w-6 h-0.5 bg-white"></span>
-              <span className="block w-6 h-0.5 bg-white mt-1.5"></span>
-              <span className="block w-6 h-0.5 bg-white mt-1.5"></span>
+              <div className="w-6 h-5 flex flex-col justify-between">
+                <span 
+                  className={`block h-0.5 bg-white transition-all duration-300 ${
+                    navbarOpen ? 'rotate-45 translate-y-2' : ''
+                  }`}
+                ></span>
+                <span 
+                  className={`block h-0.5 bg-white transition-all duration-300 ${
+                    navbarOpen ? 'opacity-0' : ''
+                  }`}
+                ></span>
+                <span 
+                  className={`block h-0.5 bg-white transition-all duration-300 ${
+                    navbarOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`}
+                ></span>
+              </div>
             </button>
           </div>
         </div>
         {navbarOpen && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40" />
+          <div 
+            className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 lg:hidden"
+            onClick={() => setNavbarOpen(false)}
+            aria-label="Close mobile menu"
+          />
         )}
         <div
           ref={mobileMenuRef}
-          className={`lg:hidden fixed top-0 right-0 h-full w-full bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${
+          className={`lg:hidden fixed top-0 right-0 h-full w-80 bg-darkmode shadow-2xl transform transition-transform duration-300 ease-in-out ${
             navbarOpen ? "translate-x-0" : "translate-x-full"
-          } z-50`}
+          } z-50 border-l border-gray-700`}
         >
-          <div className="flex items-center justify-between p-4">
-            <h2 className="text-lg font-bold text-midnight_text dark:text-midnight_text">
+          <div className="flex items-center justify-between p-6 border-b border-gray-700">
+            <div className="text-lg font-bold">
               <Logo />
-            </h2>
-
-            {/*  */}
+            </div>
             <button
               onClick={() => setNavbarOpen(false)}
-              className="bg-[url('/images/closed.svg')] bg-no-repeat bg-contain w-5 h-5 absolute top-0 right-0 mr-8 mt-8 dark:invert"
-              aria-label="Close menu Modal"
-            ></button>
+              className="p-2 rounded-lg hover:bg-gray-800 transition-colors duration-200"
+              aria-label="Close menu"
+            >
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
           </div>
-          <nav className="flex flex-col items-start p-4">
-            {headerData.map((item, index) => (
-              <MobileHeaderLink key={index} item={item} />
-            ))}
-            <div className="mt-6 flex flex-col space-y-4 w-full">
+          <nav className="flex flex-col h-full">
+            <div className="flex-1 p-6 overflow-y-auto">
+              <div className="space-y-2">
+                {headerData.map((item, index) => (
+                  <MobileHeaderLink 
+                    key={index} 
+                    item={item} 
+                    onLinkClick={() => setNavbarOpen(false)}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="p-6 border-t border-gray-700">
               <a
                 href="https://discord.gg/nvhrB6vJCF"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center text-darkmode hover:bg-transparent hover:text-primary border border-primary px-4 py-3 rounded-2xl gap-2 text-lg font-semibold whitespace-nowrap w-full"
+                className="flex items-center justify-center text-darkmode hover:bg-[#0fa868] border border-primary px-4 py-3 rounded-2xl gap-2 text-lg font-semibold whitespace-nowrap w-full transition-colors duration-200"
                 style={{ backgroundColor: '#13db7a' }}
                 onClick={() => setNavbarOpen(false)}
               >
