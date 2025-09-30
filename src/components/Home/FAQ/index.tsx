@@ -329,7 +329,7 @@ export default function FAQ() {
         </div>
       </section>
       {/* Blog Section (Restored Original) */}
-  <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center">
+  <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center" id="blog">
         <div className="w-full flex justify-center mb-20">
           <a
             href="https://discordapp.com/channels/1409224081693474816/1409572846690242691"
