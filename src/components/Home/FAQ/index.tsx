@@ -169,18 +169,6 @@ export default function FAQ() {
 
           {/* Second Row of Team Members */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
-            {/* Team Member NEPHAT */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/Nephat_Team Avatar.svg" alt="NEPHAT" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">NEPHAT <span className="text-gray-400">| Mentor</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Bonds & Fixed Income</span>
-                </div>
-              </div>
-            </div>
             {/* Team Member OSUMBA */}
             <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
               <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
@@ -385,7 +373,7 @@ export default function FAQ() {
           </a>
         </div>
         <div className="flex justify-center w-full mt-8">
-          <a href="/markdown/blog" className="text-gray-200 font-semibold text-lg hover:text-[#13db7a] hover:underline">See More Blogs</a>
+          <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-200 font-semibold text-lg hover:text-[#13db7a] cursor-pointer">See More Blogs</a>
         </div>
       </section>
       {/* FAQ Section */}
