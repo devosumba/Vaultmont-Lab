@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateEmail } from '@/utils/validateEmail';
-import { sendNewsletterSubscriptionNotification } from '@/lib/simpleEmailService';
+import { sendNewsletterSubscriptionNotification } from '@/lib/webEmailService';
 
 export async function POST(request: NextRequest) {
   try {
