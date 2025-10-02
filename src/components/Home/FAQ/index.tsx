@@ -265,7 +265,7 @@ export default function FAQ() {
                 <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">Most Popular - save 33%</span>
               <div className="text-[#13db7a] text-xl font-semibold mb-2">Semi-Annual Membership</div>
             <div className="flex items-end mb-2">
-                <span className="text-white text-5xl font-bold mr-2">$799</span>
+                <span className="text-white text-5xl font-bold mr-2">$899</span>
               <span className="text-gray-400 text-lg">/ 6 Month</span>
             </div>
             <hr className="border-t border-[#232323] w-full my-6" />
