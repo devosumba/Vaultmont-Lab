@@ -149,7 +149,7 @@ const Header: React.FC = () => {
               </div>
             )}
             <a
-              href="https://discord.gg/nvhrB6vJCF"
+              href="https://discord.gg/mw7qpcFtmW"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden lg:inline-flex flex-row items-center justify-center text-darkmode hover:bg-transparent hover:text-primary border border-primary px-4 py-3 rounded-2xl gap-2 text-xl font-semibold whitespace-nowrap"
@@ -253,13 +253,13 @@ const Header: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="p-6 border-t border-gray-700">
+            <div className="p-6 border-t border-gray-700 mt-auto">
               <a
-                href="https://discord.gg/nvhrB6vJCF"
+                href="https://discord.gg/mw7qpcFtmW"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center text-darkmode hover:bg-[#0fa868] border border-primary px-4 py-3 rounded-2xl gap-2 text-lg font-semibold whitespace-nowrap w-full transition-colors duration-200"
-                style={{ backgroundColor: '#13db7a' }}
+                className="flex items-center justify-center text-black hover:bg-[#0fa868] border border-[#13db7a] px-4 py-3 rounded-2xl gap-2 text-lg font-semibold whitespace-nowrap w-full transition-colors duration-200 shadow-lg"
+                style={{ backgroundColor: '#13db7a', minHeight: '48px' }}
                 onClick={() => setNavbarOpen(false)}
               >
                 <Icon icon="mdi:discord" className="text-black text-xl" />
