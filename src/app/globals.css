@@ -57,3 +57,44 @@ section{
 .blog-details h3 {
   @apply mb-6 text-2xl font-bold dark:text-white sm:text-[28px] sm:leading-[40px];
 }
+
+/*
+  Custom scrollbar styling
+  - Thumb: primary brand color #13db7a
+  - Track: subtle, theme-consistent background
+  - Works in Chrome, Edge, Safari (WebKit)
+  - Adds Firefox fallback without affecting layout
+*/
+
+:root {
+  --scrollbar-thumb: #13db7a;
+  /* subtle light overlay on dark background */
+  --scrollbar-track: rgba(255, 255, 255, 0.08);
+  --scrollbar-track-hover: rgba(255, 255, 255, 0.12);
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  /* create some breathing room without changing layout */
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #15e987; /* slightly brighter on hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;              /* similar to ~10px without layout shifts */
+  scrollbar-color: var(--scrollbar-thumb) transparent; /* thumb color + transparent track */
+}
