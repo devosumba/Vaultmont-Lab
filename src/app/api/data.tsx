@@ -116,19 +116,19 @@ export const perksData: {
   {
     icon: "/images/perks/icon-support.svg",
     title: "24/7 Support",
-    text: "Trading never sleeps and neither do we! Our team is always on hand to",
+    text: "Trading never sleeps and neither do we! Our team is always on stand by",
     space: "lg:mt-8",
   },
   {
     icon: "/images/perks/icon-community.svg",
-    title: "Investment  Community",
-    text: "Join a vibrant community of investors dedicated to sharing insights .",
+    title: "Trading  Community",
+    text: "Join a vibrant community of traders dedicated to sharing insights.",
     space: "lg:mt-14",
   },
   {
     icon: "/images/perks/icon-academy.svg",
-    title: "Vaultmont Wealth Lab",
-    text: "An elite training ground for traders serious about Bonds, ETFs, Derivatives.",
+    title: "Wealth Engine",
+    text: "An elite training ground for investors serious about Bonds, ETFs, Equities and alternatives.",
     space: "lg:mt-4",
   },
 ];

@@ -305,7 +305,7 @@ export default function FAQ() {
               </div>
               <div className="flex items-center w-full justify-center gap-2">
                 <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">ONDU <span className="text-gray-400">| Trader</span></span>
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">ONDU <span className="text-gray-400">| Founder</span></span>
                   <span className="text-gray-400 text-base md:text-lg text-center w-full">Indices & Futures</span>
                 </div>
               </div>
@@ -317,7 +317,7 @@ export default function FAQ() {
               </div>
               <div className="flex items-center w-full justify-center gap-2">
                 <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">WITMARK <span className="text-gray-400">| Trader</span></span>
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">WITMARK <span className="text-gray-400">| Co Founder</span></span>
                   <span className="text-gray-400 text-base md:text-lg text-center w-full">FX &amp; Commodities</span>
                 </div>
               </div>
