@@ -1,5 +1,4 @@
 "use client";
-                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring)</span></li>
 import React from "react";
 
 // Typing animation for '{ PRICING }' that loops infinitely
@@ -23,7 +22,7 @@ const TypingPricing: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [charIdx, text]);
   return (
-    <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide text-center w-full">{displayed}</div>
+    <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide text-center w-full min-h-6">{displayed || '\u00A0'}</div>
   );
 };
 
@@ -50,7 +49,127 @@ const TypingTeam: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [charIdx, text]);
   return (
-  <span className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide mb-8">{displayed}</span>
+  <span className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide mb-8 inline-block min-h-6 leading-6">{displayed || '\u00A0'}</span>
+  );
+};
+
+// Typing animation for '{ TESTIMONIALS }' that matches '{ PRICING }'
+const TypingTestimonials: React.FC = () => {
+  const text = "{ TESTIMONIALS }";
+  const [displayed, setDisplayed] = React.useState("");
+  const [charIdx, setCharIdx] = React.useState(0);
+  React.useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (charIdx <= text.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(text.slice(0, charIdx));
+        setCharIdx(charIdx + 1);
+      }, 90);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayed("");
+        setCharIdx(0);
+      }, 700);
+    }
+    return () => clearTimeout(timeout);
+  }, [charIdx, text]);
+  return (
+    <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide text-center w-full min-h-6">{displayed || '\u00A0'}</div>
+  );
+};
+
+// Testimonial type and spotlight carousel
+interface Testimonial {
+  name: string;
+  role: string;
+  img: string;
+  text: string;
+}
+
+const SpotlightCarousel: React.FC<{ testimonials: Testimonial[] }> = ({ testimonials }) => {
+  const [active, setActive] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
+  const [dir, setDir] = React.useState<1 | -1>(1); // 1 -> next (slide from right), -1 -> prev (slide from left)
+  const [aosType, setAosType] = React.useState<'fade-up' | 'fade-right'>('fade-up');
+
+  // Responsive AOS: fade-right on md+, fade-up on mobile
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(min-width: 768px)');
+    const apply = () => setAosType(mq.matches ? 'fade-right' : 'fade-up');
+    apply();
+    mq.addEventListener?.('change', apply);
+    return () => mq.removeEventListener?.('change', apply);
+  }, []);
+
+  // Auto-rotate every 6s; pause on hover
+  React.useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setDir(1);
+      setActive((i) => (i + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(id);
+  }, [paused, testimonials.length]);
+
+  const current = testimonials[active];
+
+  const onDotClick = (i: number) => {
+    if (i === active) return;
+    setDir(i > active ? 1 : -1);
+    setActive(i);
+  };
+
+  return (
+    <div className="w-full" data-aos={aosType}>
+      <div
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        className="relative"
+      >
+        <div
+          key={active}
+          className={`relative max-w-5xl mx-auto bg-[#181818] rounded-2xl border border-[#222] shadow-lg p-6 sm:p-8 md:p-10 animate-cardIn ${
+            dir === 1 ? 'animate-slideInRight' : 'animate-slideInLeft'
+          }`}
+        >
+          {/* Top sheen gradient */}
+          <div className="pointer-events-none absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-[#13db7a] via-[#13db7a]/60 to-transparent" />
+
+          <div className="flex items-center gap-1 text-yellow-400 mb-5" aria-hidden>
+            {Array.from({ length: 5 }).map((_, idx) => (
+              <span key={idx} className="text-xl">★</span>
+            ))}
+          </div>
+          <p className="text-gray-200 text-lg md:text-xl leading-relaxed italic mb-8">
+            “{current.text}”
+          </p>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden ring-2 ring-[#13db7a]/60 bg-[#232323] flex items-center justify-center">
+              <img src={current.img} alt={current.name} className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <div className="text-white font-semibold text-base md:text-lg">{current.name}</div>
+              <div className="text-gray-400 text-sm md:text-base">{current.role}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Indicators */}
+      <div className="flex items-center justify-center gap-3 mt-6">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            aria-label={`Show testimonial ${i + 1}`}
+            onClick={() => onDotClick(i)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === active ? 'w-8 bg-[#13db7a]' : 'w-2 bg-[#2a2a2a] hover:bg-[#3a3a3a]'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
@@ -99,6 +218,43 @@ const faqs = [
 
 export default function FAQ() {
   const [openIdx, setOpenIdx] = React.useState<number | null>(null);
+  const testimonials = [
+    {
+      name: "Daniel K.",
+      role: "Nairobi, Kenya",
+      img: "/images/testimonials/1.jpg",
+      text:
+        "I grew my $200 account to $800 in 2 months after applying the risk rules I learned here.",
+    },
+    {
+      name: "Aisha M",
+      role: "London",
+      img: "/images/testimonials/2.jpg",
+      text:
+        "The daily market insights helped me stop overtrading. I now average 3–4 high-quality setups a week, instead of 20 random trades.",
+    },
+    {
+      name: "Leon W",
+      role: "Cape Town",
+      img: "/images/testimonials/3.jpg",
+      text:
+        "I finally built a track record. My journal shows 60% win rate after three months — something I never had before.",
+    },
+    {
+      name: "Sophia T",
+      role: "Toronto",
+      img: "/images/testimonials/4.jpg",
+      text:
+        "The live trading streams taught me discipline. I cut my losses faster and doubled my consistency in 6 weeks.",
+    },
+    {
+      name: "Omar H",
+      role: "Dubai",
+      img: "/images/testimonials/5.jpg",
+      text:
+        "Mentorship changed my mindset — I treat trading like a business now. I’m growing slow, but I’ve kept my account positive for 5 straight months.",
+    },
+  ];
   return (
     <>
       {/* Our Team Section */}
@@ -316,7 +472,7 @@ export default function FAQ() {
           
         </div>
       </section>
-      {/* Blog Section (Restored Original) */}
+    {/* Blog Section (Restored Original) */}
   <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center" id="blog">
         <div className="w-full flex justify-center mb-20">
           <a
@@ -374,6 +530,42 @@ export default function FAQ() {
         </div>
         <div className="flex justify-center w-full mt-8">
           <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-200 font-semibold text-lg hover:text-[#13db7a] cursor-pointer">See More Blogs</a>
+        </div>
+      </section>
+      {/* Testimonials Section (Single-card spotlight carousel) */}
+      <section id="testimonials" className="py-20 bg-darkmode">
+        <div className="w-full max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12" data-aos="fade-up">
+            <TypingTestimonials />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-3">
+              What Our Community Say
+            </h2>
+            <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+              Join thousands who’ve transformed their trading experience with
+              <span className="ml-2 font-semibold text-white">Vaultmont</span>.
+            </p>
+          </div>
+
+          {/* Spotlight Card */}
+          <SpotlightCarousel testimonials={testimonials} />
+
+          <style jsx>{`
+            .animate-cardIn { animation: cardIn 0.3s ease both; }
+            @keyframes cardIn {
+              from { opacity: 0; transform: translateY(12px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-slideInRight { animation: slideInRight 0.3s ease both; }
+            .animate-slideInLeft { animation: slideInLeft 0.3s ease both; }
+            @keyframes slideInRight {
+              from { opacity: 0; transform: translateX(24px); }
+              to { opacity: 1; transform: translateX(0); }
+            }
+            @keyframes slideInLeft {
+              from { opacity: 0; transform: translateX(-24px); }
+              to { opacity: 1; transform: translateX(0); }
+            }
+          `}</style>
         </div>
       </section>
       {/* FAQ Section */}
