@@ -266,8 +266,8 @@ export default function FAQ() {
         "I finally built a track record. My journal shows 60% win rate after three months — something I never had before.",
     },
     {
-      name: "Sophia T",
-      role: "Toronto",
+      name: "Lindo K",
+      role: "Johannesburg",
       img: "/images/testimonials/4.jpg",
       text:
         "The live trading streams taught me discipline. I cut my losses faster and doubled my consistency in 6 weeks.",
