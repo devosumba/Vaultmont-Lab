@@ -283,7 +283,7 @@ export default function FAQ() {
   return (
     <>
       {/* Our Team Section */}
-  <section className="py-14 flex flex-col items-center" id="team">
+  <section className="py-14 flex flex-col items-center scroll-mt-24" id="team">
         <div className="w-full max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-8">
             <div>
@@ -390,8 +390,8 @@ export default function FAQ() {
         </div>
   </section>
   {/* Pricing Section */}
-  <section className="py-12 pb-32 bg-darkmode flex flex-col items-center">
-    <div id="pricing">
+  <section className="py-12 pb-32 bg-darkmode flex flex-col items-center scroll-mt-24" id="pricing">
+    <div>
   <TypingPricing />
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-4 leading-tight text-center">Discover Our Payment Plans</h2>
       <p className="text-gray-300 text-base sm:text-lg md:text-xl text-center mb-8 sm:mb-10 max-w-2xl mx-auto">Explore tailored subscription options that balance flexibility and value, granting you seamless entry into our community.</p>
@@ -498,7 +498,7 @@ export default function FAQ() {
         </div>
       </section>
     {/* Blog Section (Restored Original) */}
-  <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center" id="blog">
+  <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center scroll-mt-24" id="blog">
         <div className="w-full flex justify-center mb-20">
           <a
             href="https://discordapp.com/channels/1409224081693474816/1409572846690242691"
@@ -558,7 +558,7 @@ export default function FAQ() {
         </div>
       </section>
       {/* Testimonials Section (Single-card spotlight carousel) */}
-      <section id="testimonials" className="py-20 bg-darkmode">
+  <section id="testimonials" className="py-20 bg-darkmode scroll-mt-24">
         <div className="w-full max-w-6xl mx-auto px-4">
           <div className="text-center mb-12" data-aos="fade-up">
             <TypingTestimonials />
@@ -566,7 +566,7 @@ export default function FAQ() {
               What Our Community Say
             </h2>
             <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-              Join thousands who’ve transformed their trading experience with
+              Join thousands who’ve transformed their trading & investing experience with
               <span className="ml-2 font-semibold text-white">Vaultmont</span>.
             </p>
           </div>
@@ -594,7 +594,7 @@ export default function FAQ() {
         </div>
       </section>
       {/* FAQ Section */}
-  <section className="pt-12 pb-20 bg-darkmode flex flex-col items-center" id="faq">
+  <section className="pt-12 pb-20 bg-darkmode flex flex-col items-center scroll-mt-24" id="faq">
         <div className="text-center mb-6" data-aos="fade-up">
           <TypingFaqs />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-3">Frequently Asked <span style={{color: '#13db7a'}}>Questions</span></h2>
