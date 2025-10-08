@@ -18,7 +18,7 @@ const Platform = () => {
           <div className="lg:col-span-4 col-span-12">
             <div className="flex lg:justify-end lg:mt-0 mt-7 justify-center">
               <a
-                href="https://discord.gg/tuWUfAb7"
+                href="https://discord.gg/mw7qpcFtmW"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-darkmode border border-primary py-3 px-5 rounded-lg sm:text-21 text-18 font-medium hover:bg-transparent hover:text-primary"

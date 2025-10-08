@@ -78,6 +78,31 @@ const TypingTestimonials: React.FC = () => {
   );
 };
 
+// Typing animation for "{ FAQ's }" matching TESTIMONIALS
+const TypingFaqs: React.FC = () => {
+  const text = "{ FAQ's }";
+  const [displayed, setDisplayed] = React.useState("");
+  const [charIdx, setCharIdx] = React.useState(0);
+  React.useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (charIdx <= text.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(text.slice(0, charIdx));
+        setCharIdx(charIdx + 1);
+      }, 90);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayed("");
+        setCharIdx(0);
+      }, 700);
+    }
+    return () => clearTimeout(timeout);
+  }, [charIdx, text]);
+  return (
+    <div className="text-[#13db7a] text-base font-semibold mb-2 tracking-wide text-center w-full min-h-6">{displayed || '\u00A0'}</div>
+  );
+};
+
 // Testimonial type and spotlight carousel
 interface Testimonial {
   name: string;
@@ -570,7 +595,10 @@ export default function FAQ() {
       </section>
       {/* FAQ Section */}
   <section className="pt-12 pb-20 bg-darkmode flex flex-col items-center" id="faq">
-        <h2 className="font-medium sm:text-28 text-18 text-center text-white mb-6">Frequently Asked <span style={{color: '#13db7a'}}>Questions</span></h2>
+        <div className="text-center mb-6" data-aos="fade-up">
+          <TypingFaqs />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-3">Frequently Asked <span style={{color: '#13db7a'}}>Questions</span></h2>
+        </div>
         <div className="space-y-4 w-full max-w-2xl flex flex-col items-center">
           {faqs.map((faq, idx) => (
             <div
