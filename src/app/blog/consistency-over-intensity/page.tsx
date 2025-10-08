@@ -1,13 +1,13 @@
 import React from "react";
-
-export const metadata = {
-  title: "Consistency Over Intensity",
-  description: "Consistency Over Intensity - How to Build Confidence in Trading",
-};
+import Head from "next/head";
 
 export default function ConsistencyOverIntensityBlog() {
   return (
     <>
+      <Head>
+        <title>Consistency Over Intensity</title>
+        <meta name="description" content="Consistency Over Intensity - How to Build Confidence in Trading" />
+      </Head>
   <main className="bg-darkmode min-h-screen py-12 px-4 flex flex-col items-center mt-24">
   <article className="max-w-2xl w-full bg-[#181818] rounded-xl shadow-lg p-8 text-white text-center">
           <img src="/images/blog/blog%201.jpg" alt="Consistency Over Intensity" className="rounded-lg mb-8 w-full" />

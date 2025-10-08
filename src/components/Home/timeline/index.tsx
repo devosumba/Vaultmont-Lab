@@ -38,7 +38,7 @@ function TypingFeaturesLoop() {
   }, [charIdx, isDeleting, pause]);
 
   return (
-    <span style={{ color: '#13db7a' }} className="text-lg font-semibold tracking-wide inline-block min-h-6 leading-6">{displayed || '\u00A0'}</span>
+    <span style={{ color: '#13db7a' }} className="text-lg font-semibold tracking-wide">{displayed}</span>
   );
 }
 import Image from "next/image";

@@ -350,6 +350,19 @@ export default function FAQ() {
 
           {/* Second Row of Team Members */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
+            {/* Team Member - Placeholder (before OSUMBA) */}
+            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
+              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
+                {/* Use NJOGU avatar as requested */}
+                <img src="/images/team/NJOGU_Team Avatar.svg" alt="NJOGU" className="object-cover w-full h-full" />
+              </div>
+              <div className="flex items-center w-full justify-center gap-2">
+                <div className="flex flex-col items-center w-full">
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">NJOGU <span className="text-gray-400">| Mentor</span></span>
+                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Bonds & Fixed Income</span>
+                </div>
+              </div>
+            </div>
             {/* Team Member OSUMBA */}
             <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
               <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">

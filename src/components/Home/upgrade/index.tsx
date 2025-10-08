@@ -41,7 +41,7 @@ const Upgrade = () => {
           <div>
             <div className="">
               <Image
-                src= {`${getImagePrefix()}images/upgrade/img-upgrade.png`}
+                src= {`${getImagePrefix()}images/upgrade/img-upgrade.svg`}
                 alt="image"
                 width={625}
                 height={580}
