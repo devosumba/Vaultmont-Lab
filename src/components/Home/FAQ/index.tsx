@@ -431,7 +431,7 @@ export default function FAQ() {
           </div>
           {/* Biannual Membership */}
             <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
-                <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">Most Popular - save 33%</span>
+                <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">Most Popular - save 25%</span>
               <div className="text-[#13db7a] text-xl font-semibold mb-2">Semi-Annual Membership</div>
             <div className="flex items-end mb-2">
                 <span className="text-white text-5xl font-bold mr-2">$899</span>
