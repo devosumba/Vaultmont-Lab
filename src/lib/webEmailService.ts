@@ -1,5 +1,6 @@
 // Web-based email service for newsletter subscriptions
-// Sends actual emails to info@vaultmont.com using EmailJS or similar service
+// Sends actual emails to info@vaultmont.com using SMTP (Nodemailer) if configured,
+// then falls back to EmailJS/Formspree/Web3Forms, and finally logs with setup guidance.
 
 // Environment variables
 const DESTINATION_EMAIL = process.env.NEWSLETTER_DESTINATION_EMAIL || 'info@vaultmont.com';
@@ -16,6 +17,12 @@ const EMAILJS_CONFIG = {
 export async function sendNewsletterSubscriptionNotification(subscriberEmail: string): Promise<{ success: boolean; messageId?: string }> {
   try {
     // Try multiple email sending methods in order of preference
+    
+    // Method 0: Direct SMTP via Nodemailer (preferred when available)
+    const smtpResult = await sendViaSMTP(subscriberEmail);
+    if (smtpResult.success) {
+      return smtpResult;
+    }
     
     // Method 1: EmailJS (if configured)
     if (EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId && EMAILJS_CONFIG.publicKey) {
@@ -40,6 +47,56 @@ export async function sendNewsletterSubscriptionNotification(subscriberEmail: st
   } catch (error) {
     console.error('❌ Email service error:', error);
     return await fallbackWithInstructions(subscriberEmail);
+  }
+}
+
+// Method 0: Direct SMTP (Nodemailer) - uses your own mailbox or provider
+async function sendViaSMTP(subscriberEmail: string): Promise<{ success: boolean; messageId?: string }> {
+  try {
+    const SMTP_HOST = process.env.SMTP_HOST;
+    const SMTP_PORT = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT, 10) : undefined;
+    const SMTP_USER = process.env.SMTP_USER;
+    const SMTP_PASS = process.env.SMTP_PASS;
+    const EMAIL_FROM = process.env.EMAIL_FROM || SMTP_USER || 'no-reply@vaultmont.com';
+
+    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+      return { success: false };
+    }
+
+    // Lazy import nodemailer to avoid client bundling
+    const nodemailer = (await import('nodemailer')).default;
+    const transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: SMTP_PORT,
+      secure: SMTP_PORT === 465, // true for 465, false for others
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+    });
+
+    const subject = 'Newsletter Subscription';
+    const text = `New newsletter subscription received.\n\nSubscriber Email: ${subscriberEmail}\nDate: ${new Date().toLocaleString()}\nSource: Vaultmont Website Footer`;
+    const html = `
+      <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#111">
+        <h2 style="margin:0 0 8px">${subject}</h2>
+        <p style="margin:0 0 4px"><strong>Subscriber:</strong> ${subscriberEmail}</p>
+        <p style="margin:0 0 4px"><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+        <p style="margin:0 0 12px"><strong>Source:</strong> Vaultmont Website Footer</p>
+        <p style="color:#555;margin:12px 0 0">This email was sent automatically by the website.</p>
+      </div>
+    `;
+
+    const info = await transporter.sendMail({
+      from: `Vaultmont Website <${EMAIL_FROM}>`,
+      to: DESTINATION_EMAIL,
+      subject,
+      text,
+      html,
+    });
+
+    console.log('✅ SMTP email sent to:', DESTINATION_EMAIL, 'messageId:', info.messageId);
+    return { success: true, messageId: info.messageId };
+  } catch (error) {
+    console.error('❌ SMTP failed:', error);
+    return { success: false };
   }
 }
 

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateEmail } from '@/utils/validateEmail';
 import { sendNewsletterSubscriptionNotification } from '@/lib/webEmailService';
+import { appendSubscriberToSheet } from '@/lib/sheetsService';
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,15 +23,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send notification email
-    const result = await sendNewsletterSubscriptionNotification(email);
+    // Send notification email and append to Google Sheets (if configured) in parallel
+    const [emailResult, _sheetsResult] = await Promise.all([
+      sendNewsletterSubscriptionNotification(email),
+      appendSubscriberToSheet(email),
+    ]);
 
-    if (result.success) {
+    if (emailResult.success) {
       return NextResponse.json(
         { 
-          message: 'Successfully subscribed to newsletter! 🎉',
+          message: 'Successfully subscribed to Vaultmont newsletter! 🎉',
           email: email,
-          messageId: result.messageId
+          messageId: emailResult.messageId
         },
         { status: 200 }
       );

@@ -1,10 +1,44 @@
 # 🚀 Quick Email Setup Guide
 
-## Why Emails Aren't Being Sent Yet
+## Why Emails Might Not Be Arriving Yet
 
-Currently, newsletter subscriptions are only **logged to the console** instead of being sent as actual emails to `info@vaultmont.com`. This is because no email service has been configured yet.
+We now support sending emails directly via SMTP (Nodemailer) with no third‑party provider required. If SMTP isn’t configured, the system falls back to Web3Forms/Formspree/EmailJS (if configured), and otherwise logs to the console so users still see success.
 
-## ⚡ FASTEST SOLUTION: Web3Forms (FREE & 5-minute setup)
+## ✅ Recommended: Direct SMTP (No provider)
+
+Works with your domain mail server or Gmail (with App Password).
+
+1) Add these to `.env.local` in your project root:
+```env
+NEWSLETTER_DESTINATION_EMAIL=info@vaultmont.com
+
+# SMTP (choose your provider)
+SMTP_HOST=smtp.yourmailserver.com
+SMTP_PORT=587
+SMTP_USER=your-mailbox@yourdomain.com
+SMTP_PASS=your_smtp_or_app_password
+
+# Optional: what shows in the From header
+EMAIL_FROM=info@vaultmont.com
+```
+
+2) If using Gmail, enable 2FA on the account and create an “App password,” then use:
+```env
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=yourgmail@gmail.com
+SMTP_PASS=your_gmail_app_password
+```
+
+3) Run the app and submit the footer form. You should receive an email at `info@vaultmont.com`.
+
+Notes:
+- SMTP is now the first method attempted. If any of `SMTP_HOST/PORT/USER/PASS` are missing, the code automatically tries other configured providers and finally logs to console with setup tips.
+- No extra install needed—Nodemailer is already in dependencies.
+
+---
+
+## ⚡ Alternative: Web3Forms (FREE & 5-minute setup)
 
 ### Step 1: Get Web3Forms Access Key
 1. Go to **https://web3forms.com/**
@@ -28,7 +62,7 @@ WEB3FORMS_ACCESS_KEY=your_access_key_here
 
 ---
 
-## 🎯 Alternative Options
+## 🎯 Other Options
 
 ### Option 2: Formspree (FREE - 50 emails/month)
 ```env
