@@ -6,7 +6,7 @@
 
 1. Clone from Github 
 ```
-git clone https://github.com/themewagon/Crypgo.git](https://github.com/devosumba/Vaultmont-Lab
+https://github.com/devosumba/Vaultmont-Lab
 ```
 2. Install Dependencies
 ```
