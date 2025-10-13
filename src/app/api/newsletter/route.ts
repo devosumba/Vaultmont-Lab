@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+// Force Node.js runtime so Nodemailer (SMTP) works in production
+export const runtime = 'nodejs';
 import { validateEmail } from '@/utils/validateEmail';
 import { sendNewsletterSubscriptionNotification } from '@/lib/webEmailService';
 import { appendSubscriberToSheet } from '@/lib/sheetsService';
