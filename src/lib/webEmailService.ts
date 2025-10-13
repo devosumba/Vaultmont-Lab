@@ -13,6 +13,13 @@ const EMAILJS_CONFIG = {
   publicKey: process.env.EMAILJS_PUBLIC_KEY,
 };
 
+// Optional behavior flags (set these in your hosting env)
+const SMTP_ONLY =
+  process.env.SMTP_ONLY === 'true' ||
+  process.env.NEWSLETTER_SMTP_ONLY === 'true' ||
+  process.env.SMTP_STRICT === 'true';
+const SMTP_DEBUG = process.env.SMTP_DEBUG === 'true';
+
 // Send email using web service
 export async function sendNewsletterSubscriptionNotification(subscriberEmail: string): Promise<{ success: boolean; messageId?: string }> {
   try {
@@ -24,6 +31,11 @@ export async function sendNewsletterSubscriptionNotification(subscriberEmail: st
       return smtpResult;
     }
     
+    // If strict mode is enabled, do not attempt fallbacks so failures surface clearly.
+    if (SMTP_ONLY) {
+      return { success: false };
+    }
+
     // Method 1: EmailJS (if configured)
     if (EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId && EMAILJS_CONFIG.publicKey) {
       return await sendViaEmailJS(subscriberEmail);
@@ -65,12 +77,36 @@ async function sendViaSMTP(subscriberEmail: string): Promise<{ success: boolean;
 
     // Lazy import nodemailer to avoid client bundling
     const nodemailer = (await import('nodemailer')).default;
+
+    // Prefer IPv4 DNS resolution to avoid IPv6 issues on some platforms
+    try {
+      const dns = await import('dns');
+      // @ts-ignore Node 18+
+      dns.setDefaultResultOrder?.('ipv4first');
+    } catch {}
+
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
       port: SMTP_PORT,
-      secure: SMTP_PORT === 465, // true for 465, false for others
+      secure: SMTP_PORT === 465, // true for 465, false for others (STARTTLS)
       auth: { user: SMTP_USER, pass: SMTP_PASS },
-    });
+      logger: SMTP_DEBUG,
+      debug: SMTP_DEBUG,
+      tls: {
+        // SNI: ensure correct servername for some providers
+        servername: SMTP_HOST,
+      },
+    } as any);
+
+    if (SMTP_DEBUG) {
+      console.log('🛰️ SMTP connecting', { host: SMTP_HOST, port: SMTP_PORT, secure: SMTP_PORT === 465 });
+      try {
+        await transporter.verify();
+        console.log('✅ SMTP connection verified');
+      } catch (e) {
+        console.warn('⚠️ SMTP verify failed (will attempt send anyway):', (e as Error)?.message);
+      }
+    }
 
     const subject = 'Newsletter Subscription';
     const text = `New newsletter subscription received.\n\nSubscriber Email: ${subscriberEmail}\nDate: ${new Date().toLocaleString()}\nSource: Vaultmont Website Footer`;
@@ -95,7 +131,7 @@ async function sendViaSMTP(subscriberEmail: string): Promise<{ success: boolean;
     console.log('✅ SMTP email sent to:', DESTINATION_EMAIL, 'messageId:', info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error('❌ SMTP failed:', error);
+    console.error('❌ SMTP failed:', (error as Error)?.message || error);
     return { success: false };
   }
 }
