@@ -15,11 +15,11 @@ const Perks = () => {
           <p className="text-muted sm:text-28 text-18 mb-4 pb-6 relative after:content-[''] after:w-8 after:h-0.5 after:bg-primary after:absolute after:bottom-0 after:left-1/2">
             Join our private ecosystem of serious traders and investors committed to<span style={{ color: '#13db7a' }}> to building consistent and lasting success together.</span>
           </p>
-          <div className="mt-16 border border-border grid lg:grid-cols-3 sm:grid-cols-2 border-opacity-20 py-16 gap-10 px-20 rounded-3xl sm:bg-perk bg-dark_grey bg-opacity-35 lg:bg-bottom bg-center bg-no-repeat">
+          <div className="mt-16 border border-border hover:border-primary transition-colors duration-300 grid lg:grid-cols-3 sm:grid-cols-2 border-opacity-20 py-16 gap-10 px-20 rounded-3xl bg-gradient-to-br from-[#13db7a]/10 via-[#0b1a14]/20 to-[#0c1216]/10">
             {perksData.map((item, index) => (
               <div
                 key={index}
-                className="text-center flex items-center justify-end flex-col"
+                className="text-center flex items-center justify-start flex-col"
               >
                 <div className="bg-primary bg-opacity-25 backdrop-blur-sm p-4 rounded-full w-fit">
                   <Image
@@ -29,7 +29,7 @@ const Perks = () => {
                     height={44}
                   />
                 </div>
-                <h4 className={`text-white text-28 mb-4 ${item.space}`}>
+                <h4 className={"text-white text-28 mt-6 mb-4"}>
                   {item.title}
                 </h4>
                 <div
