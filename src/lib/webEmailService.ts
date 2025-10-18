@@ -4,7 +4,6 @@
 
 // Environment variables
 const DESTINATION_EMAIL = process.env.NEWSLETTER_DESTINATION_EMAIL || 'info@vaultmont.com';
-const EMAIL_FROM_NAME = process.env.EMAIL_FROM_NAME || 'Vaultmont Website';
 const WEBHOOK_URL = process.env.NEWSLETTER_WEBHOOK_URL;
 
 // EmailJS configuration (free email service)
@@ -13,13 +12,6 @@ const EMAILJS_CONFIG = {
   templateId: process.env.EMAILJS_TEMPLATE_ID,
   publicKey: process.env.EMAILJS_PUBLIC_KEY,
 };
-
-// Optional behavior flags (set these in your hosting env)
-const SMTP_ONLY =
-  process.env.SMTP_ONLY === 'true' ||
-  process.env.NEWSLETTER_SMTP_ONLY === 'true' ||
-  process.env.SMTP_STRICT === 'true';
-const SMTP_DEBUG = process.env.SMTP_DEBUG === 'true';
 
 // Send email using web service
 export async function sendNewsletterSubscriptionNotification(subscriberEmail: string): Promise<{ success: boolean; messageId?: string }> {
@@ -32,11 +24,6 @@ export async function sendNewsletterSubscriptionNotification(subscriberEmail: st
       return smtpResult;
     }
     
-    // If strict mode is enabled, do not attempt fallbacks so failures surface clearly.
-    if (SMTP_ONLY) {
-      return { success: false };
-    }
-
     // Method 1: EmailJS (if configured)
     if (EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId && EMAILJS_CONFIG.publicKey) {
       return await sendViaEmailJS(subscriberEmail);
@@ -77,49 +64,17 @@ async function sendViaSMTP(subscriberEmail: string): Promise<{ success: boolean;
     }
 
     // Lazy import nodemailer to avoid client bundling
-  const nodemailer = (await import('nodemailer')).default;
+    const nodemailer = (await import('nodemailer')).default;
+    const transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: SMTP_PORT,
+      secure: SMTP_PORT === 465, // true for 465, false for others
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+    });
 
-    // Prefer IPv4 DNS resolution to avoid IPv6 issues on some platforms
-    try {
-      const dns = await import('dns');
-      // @ts-ignore Node 18+
-      dns.setDefaultResultOrder?.('ipv4first');
-    } catch {}
-
-    const buildTransporter = (port: number) => {
-      const secure = port === 465; // SSL for 465, STARTTLS for others
-      return nodemailer.createTransport({
-        host: SMTP_HOST,
-        port,
-        secure,
-        auth: { user: SMTP_USER, pass: SMTP_PASS },
-        logger: SMTP_DEBUG,
-        debug: SMTP_DEBUG,
-        connectionTimeout: 20_000, // 20s
-        greetingTimeout: 15_000,
-        tls: {
-          servername: SMTP_HOST,
-          minVersion: 'TLSv1.2',
-          // rejectUnauthorized: true, // default; keep strict cert checks
-        },
-        requireTLS: !secure, // for STARTTLS paths
-      } as any);
-    };
-
-    const trySend = async (port: number) => {
-      const transporter = buildTransporter(port);
-      if (SMTP_DEBUG) {
-        console.log('🛰️ SMTP connecting', { host: SMTP_HOST, port, secure: port === 465 });
-        try {
-          await transporter.verify();
-          console.log('✅ SMTP connection verified');
-        } catch (e) {
-          console.warn('⚠️ SMTP verify failed (will attempt send anyway):', (e as Error)?.message);
-        }
-      }
-      const subject = 'Newsletter Subscription';
-      const text = `New newsletter subscription received.\n\nSubscriber Email: ${subscriberEmail}\nDate: ${new Date().toLocaleString()}\nSource: Vaultmont Website Footer`;
-      const html = `
+    const subject = 'Newsletter Subscription';
+    const text = `New newsletter subscription received.\n\nSubscriber Email: ${subscriberEmail}\nDate: ${new Date().toLocaleString()}\nSource: Vaultmont Website Footer`;
+    const html = `
       <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#111">
         <h2 style="margin:0 0 8px">${subject}</h2>
         <p style="margin:0 0 4px"><strong>Subscriber:</strong> ${subscriberEmail}</p>
@@ -128,36 +83,19 @@ async function sendViaSMTP(subscriberEmail: string): Promise<{ success: boolean;
         <p style="color:#555;margin:12px 0 0">This email was sent automatically by the website.</p>
       </div>
     `;
-      const info = await transporter.sendMail({
-        from: `${EMAIL_FROM_NAME} <${EMAIL_FROM}>`,
-        to: DESTINATION_EMAIL,
-        subject,
-        text,
-        html,
-      });
-      return info;
-    };
 
-    try {
-      const info = await trySend(SMTP_PORT);
-      console.log('✅ SMTP email sent to:', DESTINATION_EMAIL, 'messageId:', info.messageId, 'via port', SMTP_PORT);
-      return { success: true, messageId: info.messageId };
-    } catch (primaryError) {
-      const msg = (primaryError as Error)?.message || String(primaryError);
-      console.warn('⚠️ SMTP send failed on primary port', SMTP_PORT, ':', msg);
-      // Auto-fallback between 465 and 587 inside SMTP (still SMTP-only)
-      const altPort = SMTP_PORT === 465 ? 587 : 465;
-      try {
-        const info2 = await trySend(altPort);
-        console.log('✅ SMTP email sent to:', DESTINATION_EMAIL, 'messageId:', info2.messageId, 'via port', altPort);
-        return { success: true, messageId: info2.messageId };
-      } catch (secondaryError) {
-        console.error('❌ SMTP failed on both ports (', SMTP_PORT, 'and', altPort, '):', (secondaryError as Error)?.message || secondaryError);
-        return { success: false };
-      }
-    }
+    const info = await transporter.sendMail({
+      from: `Vaultmont Website <${EMAIL_FROM}>`,
+      to: DESTINATION_EMAIL,
+      subject,
+      text,
+      html,
+    });
+
+    console.log('✅ SMTP email sent to:', DESTINATION_EMAIL, 'messageId:', info.messageId);
+    return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error('❌ SMTP failed:', (error as Error)?.message || error);
+    console.error('❌ SMTP failed:', error);
     return { success: false };
   }
 }
