@@ -76,7 +76,7 @@ const Work = () => {
           <motion.div {...TopAnimation} className="lg:col-span-5 col-span-12">
             <div className="2xl:-mr-40 mt-9 flex justify-center">
               <Image
-                src= {`${getImagePrefix()}images/work/Discord_mockup.png`}
+                src= {`${getImagePrefix()}images/work/discord_mockup.png`}
                 alt="image"
                 width={600}
                 height={425}
