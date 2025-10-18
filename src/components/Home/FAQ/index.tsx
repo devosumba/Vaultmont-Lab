@@ -342,7 +342,7 @@ export default function FAQ() {
               <div className="flex items-center w-full justify-center gap-2">
                 <div className="flex flex-col items-center w-full">
                   <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">BRIAN <span className="text-gray-400">| Mentor</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Equities &amp; ETF</span>
+                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Equities &amp; ETFs</span>
                 </div>
               </div>
             </div>
