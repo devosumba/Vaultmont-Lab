@@ -154,13 +154,13 @@ const Hero = () => {
                 href="https://discord.gg/mw7qpcFtmW"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#13db7a] text-black px-8 py-3 rounded-lg font-medium text-18 transition hover:bg-[#13db7a]/80 flex items-center justify-center"
-                style={{ border: '2px solid #13db7a', display: 'inline-block', textAlign: 'center' }}
+                className="bg-[#13db7a] text-black px-6 py-3 rounded-lg font-medium text-18 transition hover:bg-[#13db7a]/80 inline-flex items-center justify-center whitespace-nowrap"
+                style={{ border: '2px solid #13db7a', textAlign: 'center' }}
               >
                 Start Your Journey
               </a>
               <button
-                className="bg-transparent rounded-lg text-21 font-medium py-2 px-7 transition-colors duration-200"
+                className="bg-transparent rounded-lg text-18 font-medium py-3 px-6 transition-colors duration-200 inline-flex items-center justify-center whitespace-nowrap"
                 style={{ border: '2px solid #13db7a', color: '#13db7a' }}
                 onClick={() => {
                   const el = document.getElementById('pricing');
