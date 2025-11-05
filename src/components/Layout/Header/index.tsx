@@ -149,7 +149,7 @@ const Header: React.FC = () => {
               </div>
             )}
             <a
-              href="https://discord.gg/mw7qpcFtmW"
+              href="https://discord.com/invite/mw7qpcFtmW"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden lg:inline-flex flex-row items-center justify-center text-darkmode hover:bg-transparent hover:text-primary border border-primary px-4 py-3 rounded-2xl gap-2 text-xl font-semibold whitespace-nowrap"
@@ -254,7 +254,7 @@ const Header: React.FC = () => {
                 {/* Move ENTER THE LAB button here, right after the navigation items */}
                 <div className="pt-4 border-t border-gray-700 mt-4">
                   <a
-                    href="https://discord.gg/mw7qpcFtmW"
+                    href="https://discord.com/invite/mw7qpcFtmW"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center text-black hover:bg-[#0fa868] border border-[#13db7a] px-4 py-3 rounded-2xl gap-2 text-lg font-semibold whitespace-nowrap w-full transition-colors duration-200 shadow-lg"

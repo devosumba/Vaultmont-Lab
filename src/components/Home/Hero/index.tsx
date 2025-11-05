@@ -151,7 +151,7 @@ const Hero = () => {
             </h1>
             <div className="flex items-center md:justify-start justify-center gap-8">
               <a
-                href="https://discord.gg/mw7qpcFtmW"
+                href="https://discord.com/invite/mw7qpcFtmW"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#13db7a] text-black px-6 py-3 rounded-lg font-medium text-18 transition hover:bg-[#13db7a]/80 inline-flex items-center justify-center whitespace-nowrap"
