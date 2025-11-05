@@ -21,7 +21,8 @@ const Platform = () => {
                 href="https://discord.com/invite/mw7qpcFtmW"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-darkmode border border-primary py-3 px-5 rounded-lg sm:text-21 text-18 font-medium hover:bg-transparent hover:text-primary"
+                // Ensure this button sits above any decorative overlays and is clickable on mobile
+                className="relative z-10 pointer-events-auto text-darkmode border border-primary py-3 px-5 rounded-lg sm:text-21 text-18 font-medium hover:bg-transparent hover:text-primary"
                 style={{ backgroundColor: '#13db7a', display: 'inline-block', textAlign: 'center' }}
               >
                 Start Your Journey
