@@ -202,37 +202,37 @@ const faqs = [
   {
     question: "What is the difference between trading and investing?",
     answer:
-      "Trading is a short-term market participation focused on precision and active setups (Forex, Commodities, Crypto, Indices). Investing is medium-to-long-term wealth building through equities, bonds, ETFs, and portfolio strategies.",
+      "Trading focuses on short-term market movements aiming to profit from price fluctuations through timing, precision, and execution.\n\nInvesting is broader and long-term, covering both financial instruments like stocks, bonds, and ETFs, and tangible assets such as real estate or commodities, with the goal of sustainable wealth growth. Vaultmont covers both worlds.",
   },
   {
-    question: "Do I need prior trading experience to join?",
+    question: "Do I need prior experience to join?",
     answer:
-      "No. Our programs are designed for both beginners and experienced market participants. You’ll start with foundational modules and progress to advanced concepts at your own pace.",
+      "No. Vaultmont welcomes members at all experience levels.",
   },
   {
     question: "Do you offer signals?",
     answer:
-      "No. Vaultmont is not a signal service. Instead, we teach you how to analyze markets and make your own informed decisions, backed by professional insights and trade ideas.",
+      "No. Vaultmont is an education and mentorship platform, not a signal service.\n\nWe teach you how to analyze, plan, and execute trades independently. Mentors may share trade ideas or outlooks for learning purposes only.",
   },
   {
-    question: "Do you offer mentorship?",
+    question: "What is the difference between a Blueprint and Mentorship?",
     answer:
-      "Yes. Mentorship is available in the Semi-Annual and Annual plans. This includes one-on-one sessions, weekly Q&A, and desk-specific guidance across both trading and investing tracks.",
+      "Blueprints are 30-day interactive learning programs that deliver structured lessons and guided exercises to help you master core principles quickly.\n\nMentorship is a separate 12-month program offering direct 1-on-1 access to all Vaultmont mentors across both tracks, focusing on personalized development, accountability, and real-world application.",
   },
   {
-    question: "How long does it take to study in the Lab?",
+    question: "How long does a Blueprint last?",
     answer:
-      "There’s no fixed timeline. Members typically spend 3–6 months completing the core modules, but learning is ongoing with weekly lessons, live sessions, and continuous updates.",
+      "Each Blueprint runs for about 30 days of interactive lessons and resources. You can learn at your own pace and keep access afterward for review or continued practice.",
   },
   {
-    question: "How often are new lessons, trade ideas, and resources added?",
+    question: "What is included in the 1-on-1 Mentorship plan?",
     answer:
-      "Weekly. You’ll receive updated trade ideas, new lessons, and regular reports to keep your knowledge fresh and relevant.",
+      "Mentorship provides one year of personalized guidance from all Vaultmont mentors. It includes private sessions, progress tracking, performance reviews, and exclusive access to mentor-only resources and discussion spaces.",
   },
   {
     question: "Can I really build a career through Vaultmont?",
     answer:
-      "Yes. Vaultmont serves as a launchpad for industry opportunities. Traders can position themselves for proprietary trading or hedge funds, while investors can explore careers in research, advisory, and asset management.",
+      "Yes. Vaultmont equips you with both the technical and professional skills to trade or invest confidently. Our structured programs and mentorship prepare you for real-world opportunities in trading, portfolio management, and financial consulting.",
   },
   {
     question: "What payment methods do you accept?",
@@ -370,7 +370,7 @@ export default function FAQ() {
               </div>
               <div className="flex items-center w-full justify-center gap-2">
                 <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">OSUMBA <span className="text-gray-400">| Techie</span></span>
+                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">OSUMBA <span className="text-gray-400">| Team</span></span>
                   <span className="text-gray-400 text-base md:text-lg text-center w-full">Systems & Innovation</span>
                 </div>
               </div>
