@@ -616,18 +616,17 @@ export default function FAQ() {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-[#181818] rounded-lg border border-[#222] w-full"
+              className="faq-card group bg-[#181818] rounded-lg border border-[#222] w-full"
               style={{ maxWidth: "700px" }}
             >
               <button
-                className="w-full flex items-center justify-between px-6 py-5 text-lg font-medium focus:outline-none"
-                style={{ color: openIdx === idx ? '#13db7a' : '#fff' }}
+                className={`w-full flex items-center justify-between px-6 py-5 text-lg font-medium focus:outline-none transition-colors duration-300 ${openIdx === idx ? 'text-[#13db7a]' : 'text-white'}`}
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 aria-expanded={openIdx === idx}
                 aria-controls={`faq-panel-${idx}`}
               >
-                <span>{faq.question}</span>
-                <span className="text-gray-400 text-xl font-thin flex items-center">
+                <span className="break-words">{faq.question}</span>
+                <span className={`text-gray-400 text-xl font-thin flex items-center transition-transform duration-300 ${openIdx === idx ? 'rotate-180 text-[#13db7a]' : 'group-hover:rotate-180'}`}>
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 9L11 14L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -651,6 +650,29 @@ export default function FAQ() {
           @keyframes fadein {
             from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
+          }
+          /* FAQ card hover / focus styling to match screenshot: subtle lift, green border/ring and glow */
+          .faq-card {
+            transition: transform .28s cubic-bezier(.2,.9,.2,1),
+                        box-shadow .28s cubic-bezier(.2,.9,.2,1),
+                        border-color .28s cubic-bezier(.2,.9,.2,1);
+            will-change: transform, box-shadow;
+          }
+          .faq-card:hover,
+          .faq-card:focus-within {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(19,219,122,0.08), inset 0 1px 0 rgba(255,255,255,0.02);
+            border-color: #13db7a;
+          }
+          /* make taps/keyboard focus also show ring for accessibility */
+          .faq-card:focus-within {
+            outline: none;
+            box-shadow: 0 12px 30px rgba(19,219,122,0.09), 0 0 0 4px rgba(19,219,122,0.06);
+            border-color: #13db7a;
+          }
+          /* Slightly reduce transform on small touch devices to avoid layout jumps */
+          @media (max-width: 640px) {
+            .faq-card:hover { transform: none; box-shadow: 0 8px 20px rgba(19,219,122,0.06); }
           }
         `}</style>
       </section>
