@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from 'next/link';
 
 // Typing animation for '{ PRICING }' that loops infinitely
 const TypingPricing: React.FC = () => {
@@ -567,7 +568,7 @@ export default function FAQ() {
           </a>
         </div>
         <div className="flex justify-center w-full mt-8">
-          <a href="#" onClick={(e) => e.preventDefault()} className="text-gray-200 font-semibold text-lg hover:text-[#13db7a] cursor-pointer">See More Blogs</a>
+          <Link href="/resources" className="text-gray-200 font-semibold text-lg hover:text-[#13db7a]">See More Blogs</Link>
         </div>
       </section>
       {/* Testimonials Section (Single-card spotlight carousel) */}

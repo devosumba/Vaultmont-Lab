@@ -2,7 +2,8 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 
-const postsDirectory = join(process.cwd(), "markdown/Blog");
+// The markdown blog folder is lowercase in the repo (markdown/blog)
+const postsDirectory = join(process.cwd(), "markdown/blog");
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
