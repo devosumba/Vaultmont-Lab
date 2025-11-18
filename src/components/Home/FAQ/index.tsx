@@ -180,6 +180,7 @@ const SpotlightCarousel: React.FC<{ testimonials: Testimonial[] }> = ({ testimon
             </div>
           </div>
         </div>
+        {/* (Moved) Wealth & Investment membership row removed from here and placed under Pricing section */}
       </div>
 
       {/* Indicators */}
@@ -402,34 +403,74 @@ export default function FAQ() {
             </div>
           </div>
         </div>
-  </section>
+
+      </section>
   {/* Pricing Section */}
   <section className="py-12 pb-32 bg-darkmode flex flex-col items-center scroll-mt-24" id="pricing">
     <div>
   <TypingPricing />
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-4 leading-tight text-center">Discover Our Payment Plans</h2>
-      <p className="text-gray-300 text-base sm:text-lg md:text-xl text-center mb-8 sm:mb-10 max-w-2xl mx-auto">Explore tailored subscription options that balance flexibility and value, granting you seamless entry into our community.</p>
+  <p className="text-gray-300 text-base sm:text-lg md:text-xl text-center mb-8 sm:mb-10 max-w-2xl mx-auto">Explore tailored subscription options that balance flexibility and value, granting you seamless entry into our community.</p>
+  {/* Added Trading Mastery Track text styled to match '{ PRICING }' */}
+  <div className="text-[#13db7a] text-base font-semibold tracking-wide text-center w-full mt-2 mb-2 sm:mb-4">{`{ Trading Mastery Track }`}</div>
+  {/* Supporting sentence matching the paragraph style above */}
+  <p className="text-gray-300 text-base sm:text-lg md:text-xl inline-block max-w-full whitespace-nowrap mx-auto mb-8 sm:mb-10">Engineered for traders focused on edge, discipline, and execution excellence.</p>
     </div>
     <div className="w-full max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8">
           {/* Monthly Membership */}
           <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
-            <div className="text-[#13db7a] text-xl font-semibold mb-2">Monthly Membership</div>
-            <div className="flex items-end mb-2">
-              <span className="text-white text-5xl font-bold mr-2">$200</span>
-              <span className="text-gray-400 text-lg">/ Month</span>
+            <div className="text-[#13db7a] text-xl font-semibold mb-2">Trading Blueprint</div>
+            <div className="flex flex-col items-center mb-2">
+              <span className="text-white text-5xl font-bold">$300</span>
+              <span className="text-gray-400 text-lg mt-1">(One-Time Payment)</span>
             </div>
             <hr className="border-t border-[#232323] w-full my-6" />
             <div className="w-full mb-6">
               <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Daily Bias</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Market Analysis & Weekly Outlook</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Learning Library & Resources</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
-                <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Live Trading Sessions</li>
-                <li className="flex items-center gap-2 text-gray-400"><span className="text-gray-400 text-xl">✖</span> Journal Access & Playbooks</li>
-                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Investment Literacy (Bonds,<br/>Stocks, ETFs, etc)</span></li>
-                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring</span></li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-x-2 gap-y-0">
+                    <span className="text-[#13db7a] text-xl row-start-1 col-start-1 self-center">✔</span>
+                    <span className="row-start-1 col-start-2">Full structured learning modules</span>
+                    <span className="row-start-2 col-start-2 block text-gray-300 text-sm leading-tight mt-0">(Beginner → Advanced)</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Interactive Online Lessons</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Weekly Livestreams &amp; Q&A Sessions</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Risk management frameworks</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Trading psychology</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Access to downloadable playbooks and journals</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Lifetime course access + 3-month Free Community Access</span>
+                  </div>
+                </li>
               </ul>
             </div>
             <a
@@ -445,24 +486,55 @@ export default function FAQ() {
           </div>
           {/* Biannual Membership */}
             <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
-                <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">Most Popular - save 25%</span>
-              <div className="text-[#13db7a] text-xl font-semibold mb-2">Semi-Annual Membership</div>
+                <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">$100/quarter - save $20</span>
+              <div className="text-[#13db7a] text-xl font-semibold mb-2">Trading Community Access</div>
             <div className="flex items-end mb-2">
-                <span className="text-white text-5xl font-bold mr-2">$899</span>
-              <span className="text-gray-400 text-lg">/ 6 Month</span>
+                <span className="text-white text-5xl font-bold mr-2">$40</span>
+              <span className="text-gray-400 text-lg">/ Month</span>
             </div>
             <hr className="border-t border-[#232323] w-full my-6" />
             <div className="w-full mb-6">
               <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Daily Bias</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Market Analysis & Weekly Outlook</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Learning Library & Resources</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Live Trading Sessions</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Journal Access & Playbooks</li>
-                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Investment Literacy (Bonds,<br/>Stocks, ETFs, etc)</span></li>
-                <li className="flex items-center text-gray-400 text-base md:text-lg text-left"><span className="text-gray-400">✖ Career Track Monitoring</span></li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Real-time market outlooks</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Trade idea discussions</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Professional community of traders sharing insights daily</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Access to exclusive trade journals</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Access to tracking templates</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Private mentorship channels</span>
+                  </div>
+                </li>
+                
+                
+                
               </ul>
             </div>
             <a
@@ -472,29 +544,68 @@ export default function FAQ() {
               className="w-full"
             >
               <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">
-                GET STARTED
+                MONTHLY ACCESS
+              </button>
+            </a>
+            {/* Additional Quarterly Access button (same link as MONTHLY ACCESS) */}
+            <a
+              href="https://whop.com/vaultmont-wealthlab/biannual-membership/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full mt-3"
+            >
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg hover:bg-[#13db7a] hover:text-darkmode transition">
+                QUARTERLY ACCESS
               </button>
             </a>
           </div>
           {/* Annual Membership */}
           <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
-            <div className="text-[#13db7a] text-xl font-semibold mb-2 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">Annual Membership</div>
+            <div className="text-[#13db7a] text-xl font-semibold mb-2 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"> 1-on-1 Trading Mentorship</div>
             <div className="flex items-end mb-2">
-              <span className="text-white text-5xl font-bold mr-2">$1,300</span>
-              <span className="text-gray-400 text-lg">/ 12 Month</span>
+              <span className="text-white text-5xl font-bold mr-2">$1,200</span>
+              <span className="text-gray-400 text-lg">/ Year</span>
             </div>
             <hr className="border-t border-[#232323] w-full my-6" />
             <div className="w-full mb-6">
               <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Trade Ideas & Daily Bias</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Market Analysis & Weekly Outlook</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Learning Library & Resources</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Lessons & Weekly Q&A</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Live Trading Sessions</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Journal Access & Playbooks</li>
-                <li className="flex items-center text-left gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Investment Literacy (Bonds,<br/>Stocks, ETFs, etc)</li>
-                <li className="flex items-center gap-2 text-white"><span className="text-[#13db7a] text-xl">✔</span> Career Track Monitoring</li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Personalized mentorship roadmap tailored to your goals</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">One-on-one calls with trading mentors</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Custom trade reviews and performance analysis</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Progress tracking &amp; accountability framework</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Exclusive access to all trading mentors and private mentor hub</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Priority response and scheduling</span>
+                  </div>
+                </li>
               </ul>
             </div>
             <a
@@ -510,6 +621,191 @@ export default function FAQ() {
           </div>
           
         </div>
+        <div className="w-full max-w-6xl mx-auto px-4 mt-6">
+          <div className="text-[#13db7a] text-base font-semibold tracking-wide text-center w-full mb-2 sm:mb-4 relative z-10">{`{ Wealth & Investment Track }`}</div>
+          <div className="text-gray-300 text-base sm:text-lg md:text-xl text-center w-full whitespace-nowrap mb-8 sm:mb-10">Built for long-term thinkers, portfolio builders, and wealth strategists ready to master global markets.</div>
+        </div>
+        {/* Wealth & Investment membership row (placed under pricing grid) */}
+        <div className="w-full max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 mt-6">
+          {/* Wealth Builder */}
+          <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+            <div className="text-[#13db7a] text-xl font-semibold mb-2">Wealth & Investment Blueprint</div>
+            <div className="flex flex-col items-center mb-2">
+              <span className="text-white text-5xl font-bold">$500</span>
+              <span className="text-gray-400 text-lg mt-1">(One-Time Payment)</span>
+            </div>
+            <hr className="border-t border-[#232323] w-full my-6" />
+            <div className="w-full mb-6">
+              <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
+              <ul className="space-y-3">
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Beginner → Advanced investing frameworks</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Asset class deep-dives: Equities, Bonds, ETFs, Alternatives etc</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Portfolio curation &amp; diversification techniques</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Risk-return optimization and asset allocation principles</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Financial instruments &amp; valuation basics</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Real-world case studies and strategy playbooks</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Lifetime course access + 3-month Free Community Access</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <a href="https://whop.com/vaultmont-wealthlab/wealth-investment-blueprint/" className="w-full">
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
+            </a>
+          </div>
+
+          {/* Portfolio Pro */}
+          <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+            <span className="bg-[#13db7a] text-darkmode text-xs font-bold px-4 py-1 rounded-full shadow mb-3">$120/quarter - save $30</span>
+            <div className="text-[#13db7a] text-xl font-semibold mb-2">Investor Community Access</div>
+            <div className="flex items-end mb-2">
+              <span className="text-white text-5xl font-bold mr-2">$50</span>
+              <span className="text-gray-400 text-lg">/ Month</span>
+            </div>
+            <hr className="border-t border-[#232323] w-full my-6" />
+            <div className="w-full mb-6">
+              <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
+              <ul className="space-y-3">
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Global market updates and macroeconomic outlooks</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Portfolio clinics, peer reviews &amp; feedback sessions</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Access to investor roundtables and live strategy events</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Vaultmont research reports &amp; investment theses</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Vaultmont investment theses</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Quarterly discussions on asset performance &amp; allocation trends</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <a href="https://whop.com/vaultmont-wealthlab/investor-community-access/" className="w-full">
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">MONTHLY ACCESS</button>
+            </a>
+            <a href="https://whop.com/vaultmont-wealthlab/investor-community-access/" className="w-full mt-3">
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg hover:bg-[#13db7a] hover:text-darkmode transition">QUARTERLY ACCESS</button>
+            </a>
+          </div>
+
+          {/* Global Strategies (match Annual Membership card styling) */}
+          <div className="bg-[#181818] rounded-2xl border border-[#232323] p-6 sm:p-8 flex flex-col items-center shadow-lg w-full min-w-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+            <div className="text-[#13db7a] text-xl font-semibold mb-2 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">1-on-1 Wealth Mentorship </div>
+            <div className="flex items-end mb-2">
+              <span className="text-white text-5xl font-bold mr-2">$1,500</span>
+              <span className="text-gray-400 text-lg">/ year</span>
+            </div>
+            <hr className="border-t border-[#232323] w-full my-6" />
+            <div className="w-full mb-6">
+              <div className="text-gray-400 text-base font-semibold mb-3">Features Include:</div>
+              <ul className="space-y-3">
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Personalized portfolio review and construction</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">One-on-one coaching sessions</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Direct access to wealth coaches &amp; private discussion channels</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Long-term investment strategy design</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Goal mapping &amp; financial planning</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Exclusive mentorship resources</span>
+                  </div>
+                </li>
+                <li className="text-white">
+                  <div className="grid grid-cols-[auto_1fr] gap-2">
+                    <span className="text-[#13db7a] text-xl self-start leading-none">✔</span>
+                    <span className="col-start-2">Exclusive sessions</span>
+                  </div>
+                </li>
+                <li className="flex items-center gap-2"><span className="text-[#13db7a] text-xl"></span><span className="text-gray-400 italic">Perfect for: Investors seeking to master portfolio management and those requiring personalized assessment &amp; strategy.</span></li>
+              </ul>
+            </div>
+            <a href="https://whop.com/vaultmont-wealthlab/1-on-1-wealth-mentorship/" className="w-full">
+              <button className="w-full bg-[#232323] text-white font-semibold py-3 rounded-lg mt-auto hover:bg-[#13db7a] hover:text-darkmode transition">GET STARTED</button>
+            </a>
+          </div>
+        </div>
       </section>
     {/* Blog Section (Restored Original) */}
   <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center scroll-mt-24" id="blog">
@@ -524,9 +820,9 @@ export default function FAQ() {
           </a>
         </div>
         <h2 className="font-medium sm:text-28 text-18 text-center text-white mb-6">Latest blog & news</h2>
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-center w-full">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
           {/* Blog Card 1 */}
-          <a href="/blog/consistency-over-intensity" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
+          <a href="/blog/consistency-over-intensity/" className="group bg-[#181818] rounded-xl border border-[#222] w-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
             <div className="rounded-t-xl overflow-hidden">
               <div className="bg-gradient-to-br from-[#13db7a] to-[#181818] p-6 flex items-center justify-center h-40">
                 <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">
@@ -539,7 +835,7 @@ export default function FAQ() {
               <div className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">Read More</div>
             </div>
           </a>
-          <a href="/blog/trading-vs-investing" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
+          <a href="/blog/trading-vs-investing" className="group bg-[#181818] rounded-xl border border-[#222] w-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
             <div className="rounded-t-xl overflow-hidden">
               <div className="bg-gradient-to-br from-[#13db7a] to-[#181818] p-6 flex items-center justify-center h-40">
                 <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">
@@ -553,7 +849,7 @@ export default function FAQ() {
               <div className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">Read More</div>
             </div>
           </a>
-          <a href="/blog/why-over-74-percent-of-traders-fail" className="group bg-[#181818] rounded-xl border border-[#222] w-full max-w-xs transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
+          <a href="/blog/why-over-74-percent-of-traders-fail" className="group bg-[#181818] rounded-xl border border-[#222] w-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#13db7a] hover:to-[#181818] focus:outline-none" style={{ textDecoration: 'none' }}>
             <div className="rounded-t-xl overflow-hidden">
               <div className="bg-gradient-to-br from-[#13db7a] to-[#181818] p-6 flex items-center justify-center h-40">
                 <span className="text-2xl font-bold text-[#13db7a] text-center group-hover:text-white transition-colors duration-300">

@@ -1,5 +1,9 @@
 import React from "react";
 
+export const metadata = {
+  title: 'Trading vs Investing — Vaultmont',
+};
+
 export default function TradingVsInvestingBlog() {
   return (
     <main className="bg-darkmode min-h-screen py-12 px-4 flex flex-col items-center mt-24">
@@ -16,6 +20,11 @@ export default function TradingVsInvestingBlog() {
           The key is not to confuse the two. Don’t let a losing trade morph into a “long-term investment.” Don’t chase hot tips in your retirement account. Define the game before you start.<br /><br />
           Bottom line: Trading hunts short-term edges, investing harvests long-term growth. Choose your lane, set the right rules, and you’ll give yourself the best chance to succeed.
         </p>
+        <div className="text-left mt-8">
+          <a href="/resources" className="inline-block bg-[#13db7a] text-black font-semibold py-3 px-6 rounded-lg">
+            See More Resources
+          </a>
+        </div>
         <h2 className="text-2xl font-semibold mb-4 text-[#13db7a] text-left">
           
         </h2>

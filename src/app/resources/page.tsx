@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import TypingResources from '../../components/Resources/TypingResources';
 
+export const metadata = {
+  title: 'Resource Hub',
+};
+
 const POSTS = [
   {
     title: 'Consistency Over Intensity',
