@@ -1,9 +1,5 @@
 import React from "react";
 
-export const metadata = {
-  title: 'Why You Should Build Your Stock Portfolio While Young',
-};
-
 export default function YoungPortfolioBlog() {
   return (
     <main className="bg-darkmode min-h-screen py-12 px-4 flex flex-col items-center mt-24">
@@ -91,12 +87,6 @@ export default function YoungPortfolioBlog() {
           <h2 className="text-2xl font-semibold mb-4 text-[#13db7a] text-left">Final thought</h2>
           <p className="text-base mb-4 text-gray-300 text-left">Your salary earns for today; your portfolio earns for tomorrow. Start early, stay consistent, and let compounding quietly change the scale of your outcomes.</p>
   <p className="text-sm mb-6 text-gray-400 text-left">Standard note: illustrations are for education only, exclude fees/taxes/FX, and past performance doesn’t guarantee future results.</p>
-
-  <div className="text-left mt-4">
-    <a href="/resources" className="inline-block bg-[#13db7a] text-black font-semibold py-3 px-6 rounded-lg">
-      See More Resources
-    </a>
-  </div>
       </article>
     </main>
   );
