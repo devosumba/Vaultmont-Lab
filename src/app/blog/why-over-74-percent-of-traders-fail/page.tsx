@@ -1,4 +1,9 @@
 import React from "react";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Why Over 74% of Traders Fail",
+};
 
 export default function WhyTradersFailBlog() {
   return (
@@ -71,6 +76,12 @@ export default function WhyTradersFailBlog() {
         <p className="text-base mb-6 text-gray-300 text-left">
           Most traders fail not because markets are unbeatable, but because their process is. They use leverage without guardrails, trade without an edge, ignore costs, improvise under stress, and quit before a real sample size exists. The good news: each pitfall has a fix. Build a process you can repeat on a bad day. Protect your downside. Measure what matters. Do that, and you’ll already be in the minority that gives themselves a real chance to last.
         </p>
+
+        <div className="mt-8 text-left">
+          <Link href="/resources" className="inline-block bg-[#13db7a] text-black font-semibold py-3 px-6 rounded-lg">
+            See More Resources
+          </Link>
+        </div>
       </article>
     </main>
   );
