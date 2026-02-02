@@ -47,7 +47,7 @@ const Footer: FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const response = await fetch('/api/newsletter/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,9 @@ const Footer: FC = () => {
         body: JSON.stringify({ email }),
       });
 
-      const data = await response.json();
+      const contentType = response.headers.get('content-type');
+      const isJson = contentType?.includes('application/json');
+      const data = isJson ? await response.json().catch(() => ({})) : {};
 
       if (response.ok) {
         toast.success("Successfully subscribed! 🎉");
@@ -65,7 +67,7 @@ const Footer: FC = () => {
         // Hide success message after 5 seconds
         setTimeout(() => setShowSuccess(false), 5000);
       } else {
-        toast.error(data.error || "Failed to subscribe. Please try again.");
+        toast.error((data as { error?: string }).error || "Failed to subscribe. Please try again.");
       }
     } catch (error) {
       console.error('Newsletter subscription error:', error);
