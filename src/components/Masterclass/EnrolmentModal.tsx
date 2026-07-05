@@ -34,6 +34,12 @@ const initialForm = {
 const inputClass =
   "w-full rounded-md border border-dark_border border-opacity-60 border-solid bg-transparent px-5 py-3 text-base text-white outline-none transition placeholder:text-grey focus:border-primary";
 const labelClass = "block text-muted text-opacity-60 text-sm mb-2";
+// Native <option> elements don't inherit the <select>'s bg-transparent — the
+// browser renders its own (usually light) popup list unless the options
+// themselves get an explicit background/text color. `checked:` covers the
+// currently-selected row, which browsers otherwise highlight with their own
+// default (light) selection color regardless of the base option styling.
+const optionClass = "bg-dark_grey text-white checked:bg-primary checked:text-black";
 
 const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -168,9 +174,9 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
               <div className="mb-5">
                 <label className={labelClass} htmlFor="experience">Current Trading Experience</label>
                 <select id="experience" name="experience" value={form.experience} onChange={handleChange} className={inputClass}>
-                  <option value="" disabled>Select your level</option>
+                  <option value="" disabled className={optionClass}>Select your level</option>
                   {EXPERIENCE_OPTIONS.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
+                    <option key={opt} value={opt} className={optionClass}>{opt}</option>
                   ))}
                 </select>
               </div>
@@ -178,9 +184,9 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
               <div className="mb-5">
                 <label className={labelClass} htmlFor="goal">What is your primary goal from this programme?</label>
                 <select id="goal" name="goal" value={form.goal} onChange={handleChange} className={inputClass}>
-                  <option value="" disabled>Select your primary goal</option>
+                  <option value="" disabled className={optionClass}>Select your primary goal</option>
                   {GOAL_OPTIONS.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
+                    <option key={opt} value={opt} className={optionClass}>{opt}</option>
                   ))}
                 </select>
               </div>
@@ -188,9 +194,9 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
               <div className="mb-6">
                 <label className={labelClass} htmlFor="source">How did you discover the Masterclass?</label>
                 <select id="source" name="source" value={form.source} onChange={handleChange} className={inputClass}>
-                  <option value="" disabled>Select a source</option>
+                  <option value="" disabled className={optionClass}>Select a source</option>
                   {SOURCE_OPTIONS.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
+                    <option key={opt} value={opt} className={optionClass}>{opt}</option>
                   ))}
                 </select>
               </div>
@@ -201,7 +207,7 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
                   name="confirmed"
                   checked={form.confirmed}
                   onChange={handleChange}
-                  className="mt-1 accent-primary"
+                  className="mt-1 accent-primary outline-none focus:ring-2 focus:ring-primary rounded"
                 />
                 <span>
                   I confirm that I am committing to the full 6-week programme, including the weekly
