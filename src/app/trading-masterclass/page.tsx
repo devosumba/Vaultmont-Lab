@@ -106,8 +106,7 @@ export default function TradingMasterclassPage() {
                 Cohort 01 <span style={{ color: '#13db7a' }}>Enrolment</span>
               </h2>
               <p className="text-muted text-opacity-60 text-18">
-                Secure your seat. Complete the form below. You will receive payment instructions
-                immediately after submission.
+                To secure your seat, click the &apos;Enrol Now&apos; button and fill the form.
               </p>
             </div>
             <div className="lg:col-span-4 col-span-12">
