@@ -1,5 +1,4 @@
 import TypingResources from '../../components/Resources/TypingResources';
-import AsciiHero from '../../components/Masterclass/AsciiHero';
 
 const CURRICULUM = [
   {
@@ -33,17 +32,25 @@ export default function TradingMasterclassPage() {
     <main className="bg-darkmode min-h-screen py-20 px-4 mt-24 md:mt-28 lg:mt-32">
       <div className="max-w-6xl mx-auto relative z-20">
         <div className="mb-12 md:mb-16 lg:mb-20 w-full relative">
-          <AsciiHero />
+          <img
+            src="/images/resource/resource_bg.png"
+            alt="Trading Masterclass background"
+            className="w-full h-auto"
+          />
 
-          <div className="mt-8">
-            <TypingResources text="{ Cohort 1 }" />
+          {/* Overlay typing text on the image, shifted upward to roughly the top 1/4 */}
+          <div className="absolute inset-0 pointer-events-none">
+            {/* center horizontally with left-1/2 + transform, and position vertically at 25% */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-[18%] md:top-[25%] w-full max-w-5xl md:max-w-6xl px-4">
+              <TypingResources text="{ Cohort 1 }" />
 
-            <h1 className="text-white sm:text-40 text-30 font-medium text-center mt-6">
-              Electronic Trading <span style={{ color: '#13db7a' }}>Masterclass</span>
-            </h1>
-            <p className="text-muted text-opacity-60 sm:text-18 text-base text-center mt-3 max-w-2xl mx-auto">
-              A 6-week structured programme for disciplined, capital-first traders.
-            </p>
+              <h1 className="text-white sm:text-40 text-30 font-medium text-center mt-6">
+                Electronic Trading <span style={{ color: '#13db7a' }}>Masterclass</span>
+              </h1>
+              <p className="text-muted text-opacity-60 sm:text-18 text-base text-center mt-3 max-w-2xl mx-auto">
+                A 6-week structured programme for disciplined, capital-first traders.
+              </p>
+            </div>
           </div>
         </div>
 
