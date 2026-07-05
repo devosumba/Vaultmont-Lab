@@ -1,29 +1,42 @@
 import TypingResources from '../../components/Resources/TypingResources';
+import { Icon } from '@iconify/react';
 
-const CURRICULUM = [
+const PROGRAMME_BENEFITS = [
   {
-    title: 'Market Structure & Order Flow',
-    excerpt: 'Read price action like an institution — liquidity, structure shifts, and where retail gets trapped.',
+    icon: 'ic:baseline-school',
+    title: 'Beginner to Advanced Curriculum',
+    description:
+      'Technical analysis concepts, institutional market perspectives, execution models, risk frameworks, and the psychological guardrails that protect capital.',
   },
   {
-    title: 'Risk & Capital Management',
-    excerpt: 'Position sizing, drawdown control, and the math that keeps you in the game long-term.',
+    icon: 'ic:baseline-forum',
+    title: 'Lifetime Discord Access',
+    description:
+      'Mentor Labs with live trade ideas and weekly analysis. Journal templates. An active community of disciplined traders who share real insights.',
   },
   {
-    title: 'Technical Frameworks',
-    excerpt: 'Candlesticks, key levels, and confluence-based entries built for consistency, not guesswork.',
+    icon: 'ic:baseline-bar-chart',
+    title: '3-Month Performance Reviews',
+    description:
+      'Monthly 1-on-1 performance check-ins for three months post-programme to track your application and capital outcomes.',
   },
   {
-    title: 'Trading Psychology',
-    excerpt: 'Discipline systems to remove emotion and enforce your edge trade after trade.',
+    icon: 'ic:baseline-card-membership',
+    title: 'Certificate of Achievement',
+    description:
+      'Awarded on passing the Vaultmont 2% Consistency Evaluation — Institutional Trading & Risk Management.',
   },
   {
-    title: 'Backtesting & Journaling',
-    excerpt: 'Validate your strategy with data and build a feedback loop that compounds skill.',
+    icon: 'ic:baseline-event',
+    title: 'Quarterly Trader Meetups',
+    description:
+      'Reserved participation slot at the quarterly in-person trader meetup — exclusive to programme alumni.',
   },
   {
-    title: 'Live Trade Reviews',
-    excerpt: 'Weekly cohort sessions breaking down real trades — wins, losses, and lessons.',
+    icon: 'ic:baseline-lock',
+    title: 'Capital Preservation Framework',
+    description:
+      'The single principle that separates profitable traders from persistent losers — embedded across every module from day one.',
   },
 ];
 
@@ -55,30 +68,28 @@ export default function TradingMasterclassPage() {
         </div>
 
         <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
-          <h2 className="text-white sm:text-30 text-24 font-medium mb-6">
-            What Your <span style={{ color: '#13db7a' }}>Enrolment</span> Secures
+          <p className="text-[#13db7a] text-lg font-semibold tracking-wide text-center w-full min-h-6">
+            {'{What Your '}
+            <span style={{ color: '#13db7a' }}>Enrolment</span>
+            {' Secures}'}
+          </p>
+          <h2 className="text-white sm:text-30 text-24 font-medium mt-3 mb-6">
+            A complete architecture for trading as an investment
           </h2>
           <p className="text-muted text-opacity-60 text-18">
-            A complete architecture for trading as an investment.
-            <br />
             Six deliverables designed to move you from market participant to structured, disciplined
             trader with a proven edge.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {CURRICULUM.map((item, i) => (
-            <div key={i} className="w-full">
-              <article className="group rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                <div className="h-40 flex items-center justify-center bg-gradient-to-b from-[#13db7a] to-[#0b2b20]">
-                  <h3 className="text-2xl font-semibold text-center px-6 text-[#13db7a] group-hover:text-white/95 transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                </div>
-                <div className="bg-[#0f0f0f] p-6">
-                  <p className="text-gray-300 text-base">{item.excerpt}</p>
-                </div>
-              </article>
+        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+          {PROGRAMME_BENEFITS.map((item, i) => (
+            <div key={i} className="text-center flex items-center justify-start flex-col">
+              <div className="w-16 h-16 flex items-center justify-center rounded-2xl border border-border border-opacity-20 bg-dark_grey">
+                <Icon icon={item.icon} className="text-primary" width={28} height={28} />
+              </div>
+              <h4 className="text-white text-24 mt-6 mb-3 font-medium">{item.title}</h4>
+              <p className="text-muted text-opacity-60">{item.description}</p>
             </div>
           ))}
         </div>
