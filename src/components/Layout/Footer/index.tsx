@@ -118,7 +118,7 @@ const Footer: FC = () => {
               </Link>
             </div>
             <h3 className="text-white text-24 font-medium sm:mt-20 mt-12 whitespace-nowrap">
-              2025 Copright | Vaultmont
+              {new Date().getFullYear()} Copright | Vaultmont
             </h3>
             
           </div>
