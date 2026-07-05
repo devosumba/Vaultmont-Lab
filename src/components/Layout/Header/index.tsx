@@ -79,9 +79,18 @@ const Header: React.FC = () => {
     };
   }, [isSignInOpen, isSignUpOpen, navbarOpen]);
 
+  // The Trading Masterclass page's <main> background is bg-darkmode; the
+  // navbar is transparent by default (until sticky) elsewhere, which reads
+  // as a mismatched black strip on that page specifically. Force the same
+  // bg-darkmode token there only — every other route keeps its existing
+  // transparent/sticky behavior untouched.
+  const isTradingMasterclass = pathUrl === "/trading-masterclass" || pathUrl === "/trading-masterclass/";
+
   return (
     <header
       className={`fixed top-0 z-40 w-full pb-5 transition-all duration-300 ${
+        isTradingMasterclass ? "bg-darkmode " : ""
+      }${
         sticky ? " shadow-lg bg-darkmode pt-5" : "shadow-none md:pt-14 pt-5"
       }`}
     >

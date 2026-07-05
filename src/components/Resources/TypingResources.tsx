@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 
-const TypingResources: React.FC = () => {
-  const text = "{ RESOURCES }";
+type TypingResourcesProps = {
+  text?: string;
+};
+
+const TypingResources: React.FC<TypingResourcesProps> = ({ text = "{ RESOURCES }" }) => {
   const [displayed, setDisplayed] = React.useState("");
   const [charIdx, setCharIdx] = React.useState(0);
   React.useEffect(() => {
