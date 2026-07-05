@@ -59,32 +59,37 @@ const CountdownTimer: React.FC = () => {
         {display.reached ? "Registration Closed" : "Registration Closes In"}
       </p>
 
-      <div className="flex items-center justify-center gap-2 sm:gap-4">
-        {UNITS.map((unit, i) => (
-          <React.Fragment key={unit.key}>
-            <div className="w-16 sm:w-20 py-3 rounded-2xl border border-primary border-opacity-30 bg-dark_grey">
-              <div className="text-primary text-24 sm:text-30 font-bold leading-tight">
-                {pad(display[unit.key])}
+      <div className="flex flex-col w-full max-w-xs sm:max-w-sm mx-auto">
+        <div className="flex items-center justify-center gap-1 sm:gap-4">
+          {UNITS.map((unit, i) => (
+            <React.Fragment key={unit.key}>
+              <div className="w-14 sm:w-20 py-3 rounded-2xl border border-primary border-opacity-30 bg-dark_grey">
+                <div className="text-primary text-18 sm:text-30 font-bold leading-tight">
+                  {pad(display[unit.key])}
+                </div>
+                <div className="text-muted text-opacity-60 text-xs uppercase tracking-wide mt-1">
+                  {unit.label}
+                </div>
               </div>
-              <div className="text-muted text-opacity-60 text-xs uppercase tracking-wide mt-1">
-                {unit.label}
-              </div>
-            </div>
-            {i < UNITS.length - 1 && <span className="text-muted text-opacity-60 text-24 font-bold">:</span>}
-          </React.Fragment>
-        ))}
-      </div>
+              {i < UNITS.length - 1 && <span className="text-muted text-opacity-60 text-18 sm:text-24 font-bold">:</span>}
+            </React.Fragment>
+          ))}
+        </div>
 
-      {display.reached && (
-        <p className="text-muted text-opacity-60 text-18 mt-6">
-          Registration for Cohort 01 has closed.
-        </p>
-      )}
+        {display.reached && (
+          <p className="text-muted text-opacity-60 text-18 mt-6">
+            Registration for Cohort 01 has closed.
+          </p>
+        )}
 
-      <div className="inline-block mt-8 border border-primary border-opacity-30 rounded-lg px-6 py-3">
-        <p className="text-primary text-sm font-semibold tracking-wide uppercase">
-          Limited to 20 traders · 12 seats remaining
-        </p>
+        {/* items-stretch (flex-col default) matches this banner's width to the
+            row above so the two read as one aligned unit, not two independently
+            centered elements of different widths. */}
+        <div className="mt-8 border border-primary border-opacity-30 rounded-lg px-6 py-3">
+          <p className="text-primary text-sm font-semibold tracking-wide uppercase text-center">
+            Limited to 20 traders · 12 seats remaining
+          </p>
+        </div>
       </div>
     </div>
   );

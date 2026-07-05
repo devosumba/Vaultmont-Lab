@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import toast from "react-hot-toast";
 import { Icon } from "@iconify/react";
 import CountdownTimer from "./CountdownTimer";
@@ -121,11 +122,15 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-0 right-0 mr-8 mt-8 dark:invert"
+          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full border border-border border-opacity-20 bg-dark_grey hover:bg-primary hover:bg-opacity-20 transition-colors duration-200"
           aria-label="Close Enrolment Modal"
         >
-          <Icon icon="tabler:currency-xrp" className="text-white hover:text-primary text-24 inline-block me-2" />
+          <Icon icon="ic:baseline-close" className="text-white hover:text-primary" width={20} height={20} />
         </button>
+
+        <div className="flex justify-center mb-8">
+          <Image src="/images/logo/nav_logo2.svg" alt="Vaultmont logo" width={120} height={38} style={{ width: "auto", height: "auto" }} />
+        </div>
 
         {!submitted && <CountdownTimer />}
 
