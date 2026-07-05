@@ -49,23 +49,27 @@ export default function TradingMasterclassPage() {
   return (
     <main className="bg-darkmode min-h-screen py-20 px-4 mt-24 md:mt-28 lg:mt-32">
       <div className="max-w-6xl mx-auto relative z-20">
-        <div className="mb-12 md:mb-16 lg:mb-20 w-full relative">
+        <div className="mb-12 md:mb-16 lg:mb-20 w-full relative min-h-[380px] sm:min-h-0 overflow-hidden sm:overflow-visible rounded-xl sm:rounded-none">
+          {/* Below sm, the image's natural aspect ratio (w-full h-auto) renders
+              far too short to hold three stacked text elements — it's cropped
+              to fill a guaranteed min-height instead. At sm and up this reverts
+              to the original intrinsic-ratio behavior (unchanged from before). */}
           <img
             src="/images/resource/resource_bg.png"
             alt="Trading Masterclass background"
-            className="w-full h-auto"
+            className="absolute inset-0 w-full h-full object-cover sm:static sm:w-full sm:h-auto sm:object-none"
           />
 
           {/* Overlay typing text on the image, shifted upward to roughly the top 1/4 */}
           <div className="absolute inset-0 pointer-events-none">
             {/* center horizontally with left-1/2 + transform, and position vertically at 25% */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-[18%] md:top-[25%] w-full max-w-5xl md:max-w-6xl px-4">
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-[12%] sm:top-[18%] md:top-[25%] w-full max-w-5xl md:max-w-6xl px-4">
               <TypingResources text="{ Cohort 1 }" />
 
-              <h1 className="text-white sm:text-40 text-30 font-medium text-center mt-6">
+              <h1 className="text-white sm:text-40 text-24 font-medium text-center mt-4 sm:mt-6 leading-tight">
                 Electronic Trading <span style={{ color: '#13db7a' }}>Masterclass</span>
               </h1>
-              <p className="text-muted text-opacity-60 sm:text-18 text-base text-center mt-3 max-w-2xl mx-auto">
+              <p className="text-muted text-opacity-60 sm:text-18 text-14 text-center mt-2 sm:mt-3 max-w-2xl mx-auto">
                 A 6-week structured programme for disciplined, capital-first traders.
               </p>
             </div>
