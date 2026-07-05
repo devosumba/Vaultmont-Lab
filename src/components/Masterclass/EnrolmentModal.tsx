@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { Icon } from "@iconify/react";
+import CountdownTimer from "./CountdownTimer";
 
 type EnrolmentModalProps = {
   isOpen: boolean;
@@ -125,6 +126,8 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
         >
           <Icon icon="tabler:currency-xrp" className="text-white hover:text-primary text-24 inline-block me-2" />
         </button>
+
+        {!submitted && <CountdownTimer />}
 
         {submitted ? (
           <div className="text-center py-10">
