@@ -49,7 +49,7 @@ export default function TradingMasterclassPage() {
 
         <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
           <h2 className="text-white sm:text-30 text-24 font-medium mb-6">
-            What Your Enrolment Secures
+            What Your <span style={{ color: '#13db7a' }}>Enrolment</span> Secures
           </h2>
           <p className="text-muted text-opacity-60 text-18">
             A complete architecture for trading as an investment.
