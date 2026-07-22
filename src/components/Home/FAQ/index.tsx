@@ -342,15 +342,22 @@ export default function FAQ() {
                     </div>
                   </div>
 
-                  {/* Bio reveal: absolutely positioned overlay so it never changes the
-                      card's own box size (no grid jank). Desktop reveals on hover, gated
-                      to (hover: hover) so it can't get "stuck" open after a tap on touch
-                      devices (a well-known mobile quirk where :hover persists post-tap
-                      until something else is tapped) — those instead rely purely on the
+                  {/* Bio reveal — interaction style adapted from connarkenya.org/#team's
+                      team cards: their .team-bio is opacity:0 + translateY(10px) at rest,
+                      transitioning to opacity:1 + translateY(0) over 0.35s on hover (a
+                      dark scrim fading/sliding up over the photo). Reproduced here with
+                      the same fade+slide mechanics and a translucent dark scrim, in
+                      Vaultmont's own green accent instead of Connar's palette. Kept as a
+                      full-card absolute overlay (rather than confined to just the photo
+                      like the reference) since Vaultmont's bios are full paragraphs, not
+                      a one-line tagline — this also means the card's own box size never
+                      changes on reveal, so there's no grid jank. Gated behind
+                      [@media(hover:hover)] so it can't get "stuck" open after a tap on
+                      touch devices (a known mobile quirk); those rely purely on the
                       onClick toggle above via isActive. */}
                   <div
-                    className={`absolute inset-0 bg-[#181818] rounded-xl px-6 py-8 flex items-center justify-center overflow-y-auto transition-all duration-300 ease-out [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:pointer-events-auto ${
-                      isActive ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"
+                    className={`absolute inset-0 bg-[#181818]/95 rounded-xl px-6 py-8 flex items-center justify-center overflow-y-auto transition-all duration-[350ms] ease-out [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:pointer-events-auto ${
+                      isActive ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-[10px] pointer-events-none"
                     }`}
                   >
                     <p className="text-[#13db7a] text-sm md:text-base leading-relaxed text-center">{member.bio}</p>
@@ -362,7 +369,11 @@ export default function FAQ() {
         </div>
 
       </section>
-  {/* Pricing Section */}
+  {/* Pricing hidden site-wide — wrapped in `false &&` rather than a literal
+      JSX comment since this block contains its own nested comments and
+      expressions. See Header/Navigation/menuData (nav item) and Home/Hero
+      (Pricing button) for the matching disabled UI elsewhere. */}
+  {false && (
   <section className="py-12 pb-32 bg-darkmode flex flex-col items-center scroll-mt-24" id="pricing">
     <div>
   <TypingPricing />
@@ -764,6 +775,7 @@ export default function FAQ() {
           </div>
         </div>
       </section>
+  )}
     {/* Blog Section (Restored Original) */}
   <section className="-mt-24 pb-12 bg-darkmode flex flex-col items-center scroll-mt-24" id="blog">
         <div className="w-full flex justify-center mb-20">

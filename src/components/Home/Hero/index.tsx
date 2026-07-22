@@ -159,24 +159,30 @@ const Hero = () => {
               >
                 Start Your Journey
               </a>
-              <button
-                className="bg-transparent rounded-lg text-18 font-medium py-3 px-6 transition-colors duration-200 inline-flex items-center justify-center whitespace-nowrap"
-                style={{ border: '2px solid #13db7a', color: '#13db7a' }}
-                onClick={() => {
-                  const el = document.getElementById('pricing');
-                  if (el) {
-                    const yOffset = -80; // adjust for sticky header height
-                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    window.scrollTo({ top: y, behavior: 'smooth' });
-                  } else {
-                    window.location.hash = '#pricing';
-                  }
-                }}
-                onMouseOver={e => { e.currentTarget.style.backgroundColor = '#13db7a'; e.currentTarget.style.color = '#fff'; }}
-                onMouseOut={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#13db7a'; }}
-              >
-                Pricing
-              </button>
+              {/* Pricing hidden site-wide — wrapped in `false &&` rather than a
+                  literal JSX comment since this block contains its own inline
+                  comments/expressions. See Header/Navigation/menuData and
+                  Home/FAQ (id="pricing") for the matching disabled nav/section. */}
+              {false && (
+                <button
+                  className="bg-transparent rounded-lg text-18 font-medium py-3 px-6 transition-colors duration-200 inline-flex items-center justify-center whitespace-nowrap"
+                  style={{ border: '2px solid #13db7a', color: '#13db7a' }}
+                  onClick={() => {
+                    const el = document.getElementById('pricing');
+                    if (el) {
+                      const yOffset = -80; // adjust for sticky header height
+                      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    } else {
+                      window.location.hash = '#pricing';
+                    }
+                  }}
+                  onMouseOver={e => { e.currentTarget.style.backgroundColor = '#13db7a'; e.currentTarget.style.color = '#fff'; }}
+                  onMouseOut={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#13db7a'; }}
+                >
+                  Pricing
+                </button>
+              )}
             </div>
           </motion.div>
           <motion.div {...rightAnimation} className="col-span-7 lg:block hidden">
