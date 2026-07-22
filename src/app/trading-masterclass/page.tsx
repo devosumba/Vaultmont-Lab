@@ -1,7 +1,6 @@
 "use client";
-import { useState } from 'react';
 import TypingResources from '../../components/Resources/TypingResources';
-import EnrolmentModal from '../../components/Masterclass/EnrolmentModal';
+import EnrolmentCTA from '../../components/Masterclass/EnrolmentCTA';
 import { Icon } from '@iconify/react';
 
 const PROGRAMME_BENEFITS = [
@@ -44,8 +43,6 @@ const PROGRAMME_BENEFITS = [
 ];
 
 export default function TradingMasterclassPage() {
-  const [isEnrolOpen, setIsEnrolOpen] = useState(false);
-
   return (
     <main className="bg-darkmode min-h-screen py-20 px-4 mt-24 md:mt-28 lg:mt-32">
       <div className="max-w-6xl mx-auto relative z-20">
@@ -103,32 +100,10 @@ export default function TradingMasterclassPage() {
           ))}
         </div>
 
-        <div className="mt-16 relative z-1">
-          <div className="bg-section bg-opacity-10 px-6 sm:px-16 py-14 rounded-3xl border-2 border-opacity-20 border-section grid grid-cols-12 items-center before:content-[''] before:absolute before:w-48 before:h-32 sm:before:w-96 sm:before:h-64 before:bg-start before:bg-no-repeat before:-bottom-11 overflow-hidden lg:before:right-48 before:-z-1 before:opacity-10">
-            <div className="lg:col-span-8 col-span-12">
-              <h2 className="text-white sm:text-40 text-30 mb-6">
-                Cohort #02 <span style={{ color: '#13db7a' }}>Enrolment</span>
-              </h2>
-              <p className="text-muted text-opacity-60 text-18">
-                To secure your seat, click the &apos;Enrol Now&apos; button and fill the form.
-              </p>
-            </div>
-            <div className="lg:col-span-4 col-span-12">
-              <div className="flex lg:justify-end lg:mt-0 mt-7 justify-center">
-                <button
-                  onClick={() => setIsEnrolOpen(true)}
-                  className="relative z-10 pointer-events-auto text-darkmode border border-primary py-3 px-5 rounded-lg sm:text-21 text-18 font-medium hover:bg-transparent hover:text-primary"
-                  style={{ backgroundColor: '#13db7a', display: 'inline-block', textAlign: 'center' }}
-                >
-                  Enrol Now
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="mt-16">
+          <EnrolmentCTA />
         </div>
       </div>
-
-      <EnrolmentModal isOpen={isEnrolOpen} onClose={() => setIsEnrolOpen(false)} />
     </main>
   );
 }
