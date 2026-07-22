@@ -77,9 +77,14 @@ const CountdownTimer: React.FC = () => {
         </div>
 
         {display.reached && (
-          <p className="text-muted text-opacity-60 text-18 mt-6">
-            Registration for Cohort 01 has closed.
-          </p>
+          <div className="mt-6 text-center">
+            <p className="text-primary text-24 sm:text-30 font-bold">48% OFF — Programme Fee</p>
+            <p className="text-muted text-opacity-60 text-18 mt-2">
+              Usually Ksh 38,800 ($300). Now Ksh 20,000.
+            </p>
+            <p className="text-muted text-opacity-60 text-18">Start Date: 1st August 2026</p>
+            <p className="text-muted text-opacity-60 text-18">Programme Fee: Ksh 20,000</p>
+          </div>
         )}
 
         {/* items-stretch (flex-col default) matches this banner's width to the

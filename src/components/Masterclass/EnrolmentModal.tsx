@@ -218,8 +218,9 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
                   className="mt-1 accent-primary outline-none focus:ring-2 focus:ring-primary rounded"
                 />
                 <span>
-                  I confirm that I am committing to the full 6-week programme, including the weekly
-                  sessions and the Vaultmont Consistency Evaluation at close.
+                  I confirm that I am willing to commit to the full 6-week programme, including the
+                  weekly sessions and the Vaultmont Consistency Evaluation at close, with a programme
+                  fee of Ksh 20,000 starting August 2026.
                 </span>
               </label>
 
