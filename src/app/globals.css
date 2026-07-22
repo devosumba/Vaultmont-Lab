@@ -6,6 +6,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/*
+  Safety net against horizontal panning/scrolling on mobile. This does NOT
+  replace fixing the actual oversized/overflowing elements (see the
+  decorative blur circles, CTA card pseudo-element, and whitespace-nowrap
+  paragraphs fixed alongside this) — it's a backstop for any remaining
+  edge case, since overflow:hidden on an intermediate container doesn't
+  always prevent an absolutely-positioned descendant's geometry from
+  bleeding into an ancestor's scrollWidth.
+*/
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 section{
   @apply bg-darkmode;
 }

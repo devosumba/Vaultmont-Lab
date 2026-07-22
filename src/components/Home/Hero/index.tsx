@@ -218,7 +218,7 @@ const Hero = () => {
         </div>
   {/* FAQ removed to ensure it only appears once in the site */}
       </div>
-      <div className="absolute w-50 h-50 bg-gradient-to-bl from-tealGreen from-50% to-charcoalGray to-60% blur-400 rounded-full -top-64 -right-14 -z-1"></div>
+      <div className="absolute w-96 h-96 sm:w-50 sm:h-50 bg-gradient-to-bl from-tealGreen from-50% to-charcoalGray to-60% blur-400 rounded-full -top-64 -right-14 -z-1"></div>
       {/* Modals for Buy and Sell */}
       {isBuying && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">

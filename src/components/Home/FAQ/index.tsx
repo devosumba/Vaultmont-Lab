@@ -414,7 +414,7 @@ export default function FAQ() {
   {/* Added Trading Mastery Track text styled to match '{ PRICING }' */}
   <div className="text-[#13db7a] text-base font-semibold tracking-wide text-center w-full mt-2 mb-2 sm:mb-4">{`{ Trading Mastery Track }`}</div>
   {/* Supporting sentence matching the paragraph style above */}
-  <p className="text-gray-300 text-base sm:text-lg md:text-xl inline-block max-w-full whitespace-nowrap mx-auto mb-8 sm:mb-10">Engineered for traders focused on edge, discipline, and execution excellence.</p>
+  <p className="text-gray-300 text-base sm:text-lg md:text-xl inline-block max-w-full whitespace-normal md:whitespace-nowrap mx-auto mb-8 sm:mb-10 text-center">Engineered for traders focused on edge, discipline, and execution excellence.</p>
     </div>
     <div className="w-full max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8">
           {/* Monthly Membership */}
@@ -623,7 +623,7 @@ export default function FAQ() {
         </div>
         <div className="w-full max-w-6xl mx-auto px-4 mt-6">
           <div className="text-[#13db7a] text-base font-semibold tracking-wide text-center w-full mb-2 sm:mb-4 relative z-10">{`{ Wealth & Investment Track }`}</div>
-          <div className="text-gray-300 text-base sm:text-lg md:text-xl text-center w-full whitespace-nowrap mb-8 sm:mb-10">Built for long-term thinkers, portfolio builders, and wealth strategists ready to master global markets.</div>
+          <div className="text-gray-300 text-base sm:text-lg md:text-xl text-center w-full whitespace-normal md:whitespace-nowrap mb-8 sm:mb-10">Built for long-term thinkers, portfolio builders, and wealth strategists ready to master global markets.</div>
         </div>
         {/* Wealth & Investment membership row (placed under pricing grid) */}
         <div className="w-full max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 mt-6">
