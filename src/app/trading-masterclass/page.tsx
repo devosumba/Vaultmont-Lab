@@ -57,14 +57,14 @@ export default function TradingMasterclassPage() {
           <img
             src="/images/resource/resource_bg.png"
             alt="Trading Masterclass background"
-            className="absolute inset-0 w-full h-full object-cover sm:static sm:w-full sm:h-auto sm:object-none"
+            className="absolute inset-0 w-full h-full object-cover sm:static sm:w-full sm:h-auto"
           />
 
           {/* Overlay typing text on the image, shifted upward to roughly the top 1/4 */}
           <div className="absolute inset-0 pointer-events-none">
             {/* center horizontally with left-1/2 + transform, and position vertically at 25% */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-[12%] sm:top-[18%] md:top-[25%] w-full max-w-5xl md:max-w-6xl px-4">
-              <TypingResources text="{ Cohort 1 }" />
+              <TypingResources text="{ Cohort 2 }" />
 
               <h1 className="text-white sm:text-40 text-24 font-medium text-center mt-4 sm:mt-6 leading-tight">
                 Electronic Trading <span style={{ color: '#13db7a' }}>Masterclass</span>
@@ -107,7 +107,7 @@ export default function TradingMasterclassPage() {
           <div className="bg-section bg-opacity-10 px-6 sm:px-16 py-14 rounded-3xl border-2 border-opacity-20 border-section grid grid-cols-12 items-center before:content-[''] before:absolute before:w-48 before:h-32 sm:before:w-96 sm:before:h-64 before:bg-start before:bg-no-repeat before:-bottom-11 overflow-hidden lg:before:right-48 before:-z-1 before:opacity-10">
             <div className="lg:col-span-8 col-span-12">
               <h2 className="text-white sm:text-40 text-30 mb-6">
-                Cohort #01 <span style={{ color: '#13db7a' }}>Enrolment</span>
+                Cohort #02 <span style={{ color: '#13db7a' }}>Enrolment</span>
               </h2>
               <p className="text-muted text-opacity-60 text-18">
                 To secure your seat, click the &apos;Enrol Now&apos; button and fill the form.

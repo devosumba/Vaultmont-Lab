@@ -145,7 +145,7 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
           </div>
         ) : (
           <>
-            <h3 className="text-white text-24 font-medium mb-6 text-center">Cohort 01 Enrolment Form</h3>
+            <h3 className="text-white text-24 font-medium mb-6 text-center">Cohort #02 Enrolment Form</h3>
             <form onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
                 <div>

@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-// July 14, 2026, 00:00:00 EAT (UTC+3). The explicit +03:00 offset in the ISO
+// August 1, 2026, 00:00:00 EAT (UTC+3). The explicit +03:00 offset in the ISO
 // string makes JS resolve this to a fixed UTC instant at parse time, so the
 // countdown is correct for every visitor regardless of their local timezone
 // — no manual offset math against the visitor's clock is needed.
-const TARGET_TIME = new Date("2026-07-14T00:00:00+03:00").getTime();
+const TARGET_TIME = new Date("2026-08-01T00:00:00+03:00").getTime();
 
 type TimeLeft = {
   days: number;
@@ -92,7 +92,7 @@ const CountdownTimer: React.FC = () => {
             centered elements of different widths. */}
         <div className="mt-8 border border-primary border-opacity-30 rounded-lg px-6 py-3">
           <p className="text-primary text-sm font-semibold tracking-wide uppercase text-center">
-            Limited to 20 traders · 12 seats remaining
+            Limited to 50 traders · 23 seats remaining
           </p>
         </div>
       </div>
