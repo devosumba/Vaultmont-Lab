@@ -245,6 +245,30 @@ const faqs = [
 
 export default function FAQ() {
   const [openIdx, setOpenIdx] = React.useState<number | null>(null);
+  const [activeTeamIdx, setActiveTeamIdx] = React.useState<number | null>(null);
+  const teamMembers = [
+    {
+      name: "Ian Tom Ondu",
+      title: "Founder & Lead Mentor, Trading Mastery Track",
+      image: "/images/team/Ondu_Team Avatar.svg",
+      bio:
+        "Ian is an electronic trader with 8+ years navigating the derivatives markets across forex, gold, crypto, and indices. He holds dual certifications as a Financial Planning & Wealth Management Professional (FPWMP) and Capital Markets & Securities Analyst (CMSA), and brings the rigor of a trained Economist (BA, Economics & Finance) to every setup he teaches. Ian built the Trading Mastery Track to give traders a structured, risk-first path — not shortcuts, but the discipline that separates consistent traders from the rest.",
+    },
+    {
+      name: "Brian Bawa",
+      title: "Lead Mentor, Wealth & Investment Track",
+      image: "/images/team/Brian_Team Avatar (1).svg",
+      bio:
+        "Brian is an investment finance professional with a proven track record in investment analysis, portfolio allocation, and risk optimization. His experience spans both global markets and the Nairobi Securities Exchange (NSE), giving him a rare dual lens — global best practice paired with deep local market insight. Brian leads the Wealth & Investment Track with a focus on building portfolios that are diversified, risk-aware, and built to compound over time.",
+    },
+    {
+      name: "Austine Osumba",
+      title: "IT & Systems",
+      image: "/images/team/Osumba_Team Avatar.svg",
+      bio:
+        "Austine is the software engineer behind the platform's reliability — the person who makes sure the tools, data feeds, and trading infrastructure work flawlessly when it matters most. With a background in building systems for high-stakes, real-time environments, he brings the same precision to trading platforms that markets themselves demand: speed, accuracy, and zero tolerance for downtime. Austine ensures every mentor and member has a seamless and secure experience.",
+    },
+  ];
   const testimonials = [
     {
       name: "Daniel K.",
@@ -299,108 +323,41 @@ export default function FAQ() {
           <div className="mb-6">
             <div className="flex flex-col gap-1"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {/* Team Member 1 */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/Ondu_Team Avatar.svg" alt="ONDU" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">ONDU <span className="text-gray-400">| Founder</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Indices & Futures</span>
-                </div>
-              </div>
-            </div>
-            {/* Team Member 2 */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/WITMARK_Team Avatar.svg" alt="WITMARK" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">WITMARK <span className="text-gray-400">| Co-Founder</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">FX &amp; Commodities</span>
-                </div>
-              </div>
-            </div>
-            {/* Team Member 3 */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/JASON_Team Avatar.svg" alt="JASON" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">JASON <span className="text-gray-400">| Trader</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Crypto</span>
-                </div>
-              </div>
-            </div>
-            {/* Team Member 4 */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/Brian_Team Avatar (1).svg" alt="BRIAN" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">BRIAN <span className="text-gray-400">| Mentor</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Equities &amp; ETFs</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {teamMembers.map((member, i) => {
+              const isActive = activeTeamIdx === i;
+              return (
+                <div
+                  key={member.name}
+                  className="group relative bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]"
+                  onClick={() => setActiveTeamIdx(isActive ? null : i)}
+                >
+                  <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
+                    <img src={member.image} alt={member.name} className="object-cover w-full h-full" />
+                  </div>
+                  <div className="flex items-center w-full justify-center gap-2">
+                    <div className="flex flex-col items-center w-full">
+                      <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">{member.name}</span>
+                      <span className="text-gray-400 text-base md:text-lg text-center w-full">{member.title}</span>
+                    </div>
+                  </div>
 
-          {/* Second Row of Team Members */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
-            {/* Team Member - Placeholder (before OSUMBA) */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                {/* Use NJOGU avatar as requested */}
-                <img src="/images/team/NJOGU_Team Avatar.svg" alt="NJOGU" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">NJOGU <span className="text-gray-400">| Mentor</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Bonds & Fixed Income</span>
+                  {/* Bio reveal: absolutely positioned overlay so it never changes the
+                      card's own box size (no grid jank). Desktop reveals on hover, gated
+                      to (hover: hover) so it can't get "stuck" open after a tap on touch
+                      devices (a well-known mobile quirk where :hover persists post-tap
+                      until something else is tapped) — those instead rely purely on the
+                      onClick toggle above via isActive. */}
+                  <div
+                    className={`absolute inset-0 bg-[#181818] rounded-xl px-6 py-8 flex items-center justify-center overflow-y-auto transition-all duration-300 ease-out [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:pointer-events-auto ${
+                      isActive ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    <p className="text-[#13db7a] text-sm md:text-base leading-relaxed text-center">{member.bio}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-            {/* Team Member OSUMBA */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/Osumba_Team Avatar.svg" alt="OSUMBA" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">OSUMBA <span className="text-gray-400">| Team</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Systems & Innovation</span>
-                </div>
-              </div>
-            </div>
-            {/* Team Member FID */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/FID_Team Avatar.svg" alt="FID" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">FID <span className="text-gray-400">| Team</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Community Manager</span>
-                </div>
-              </div>
-            </div>
-            {/* Team Member EDD */}
-            <div className="bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]">
-              <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                <img src="/images/team/EDD_Team Avatar.svg" alt="EDD" className="object-cover w-full h-full" />
-              </div>
-              <div className="flex items-center w-full justify-center gap-2">
-                <div className="flex flex-col items-center w-full">
-                  <span className="text-[#13db7a] font-semibold text-lg md:text-xl text-center w-full">EDD <span className="text-gray-400">| Team</span></span>
-                  <span className="text-gray-400 text-base md:text-lg text-center w-full">Brand & Marketing</span>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
 
