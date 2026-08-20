@@ -52,13 +52,68 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (!isOpen) return;
 
+    // CHANGE 3: kill background scrolling while the pop up is open.
     document.body.style.overflow = "hidden";
+
+    // CHANGE 4: hide the navbar while the pop up is open (smooth fade),
+    // restoring it on close/cancel.
+    const header = document.querySelector<HTMLElement>("header");
+    if (header) {
+      header.style.transition = "opacity 0.3s ease";
+      header.style.opacity = "0";
+      header.style.pointerEvents = "none";
+    }
+
+    // CHANGE 2: make everything except the pop up non-interactive. The pop
+    // up itself is rendered inside <main>, so pointer-events: none on
+    // <main>/<header>/<footer> is paired with pointer-events-auto on the
+    // overlay/pop up elements below to punch a hole back through.
+    const main = document.querySelector<HTMLElement>("main");
+    const footer = document.querySelector<HTMLElement>("footer");
+    const backgroundEls = [main, footer].filter((el): el is HTMLElement => el !== null);
+    backgroundEls.forEach((el) => {
+      el.style.pointerEvents = "none";
+    });
+
+    const FOCUSABLE_SELECTOR =
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    // Move initial focus into the pop up, then trap Tab/Shift+Tab within it
+    // for as long as it's open — combined with the pointer-events change
+    // above, nothing in the background is reachable by mouse or keyboard.
+    const initialFocusable = modalRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
+    initialFocusable?.[0]?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key === "Tab" && modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = "";
+      if (header) {
+        header.style.opacity = "1";
+        header.style.pointerEvents = "all";
+      }
+      backgroundEls.forEach((el) => {
+        el.style.pointerEvents = "";
+      });
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -113,12 +168,12 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-[6px] flex items-center justify-center z-[100] p-4 pointer-events-auto"
       onMouseDown={handleOverlayMouseDown}
     >
       <div
         ref={modalRef}
-        className="relative mx-auto w-full max-w-lg overflow-y-auto max-h-[90vh] rounded-lg px-8 pt-14 pb-8 bg-dark_grey bg-opacity-90 backdrop-blur-md"
+        className="relative z-[101] pointer-events-auto mx-auto w-full max-w-lg overflow-y-auto max-h-[90vh] rounded-lg px-8 pt-14 pb-8 bg-dark_grey bg-opacity-90 backdrop-blur-md"
       >
         <button
           onClick={onClose}
