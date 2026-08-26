@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-// August 1, 2026, 00:00:00 EAT (UTC+3). The explicit +03:00 offset in the ISO
-// string makes JS resolve this to a fixed UTC instant at parse time, so the
-// countdown is correct for every visitor regardless of their local timezone
-// — no manual offset math against the visitor's clock is needed.
-const TARGET_TIME = new Date("2026-08-01T00:00:00+03:00").getTime();
+// September 14, 2026, 23:59:59 EAT (UTC+3). The explicit +03:00 offset in the
+// ISO string makes JS resolve this to a fixed UTC instant at parse time, so
+// the countdown is correct for every visitor regardless of their local
+// timezone — no manual offset math against the visitor's clock is needed.
+const TARGET_TIME = new Date("2026-09-14T23:59:59+03:00").getTime();
 
 type TimeLeft = {
   days: number;
@@ -36,7 +36,11 @@ const UNITS: { key: keyof Pick<TimeLeft, "days" | "hours" | "mins" | "secs">; la
   { key: "secs", label: "Secs" },
 ];
 
-const CountdownTimer: React.FC = () => {
+type CountdownTimerProps = {
+  remainingSeats: number;
+};
+
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ remainingSeats }) => {
   // Start null so the server-rendered markup and the first client render
   // match exactly (avoids a hydration mismatch from clock-dependent output).
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
@@ -56,7 +60,7 @@ const CountdownTimer: React.FC = () => {
   return (
     <div className="mb-10 text-center">
       <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-6">
-        {display.reached ? "Registration Closed" : "Registration Closes In"}
+        {display.reached ? "Registration Closed" : "Registration Open"}
       </p>
 
       <div className="flex flex-col w-full max-w-xs sm:max-w-sm mx-auto">
@@ -76,23 +80,18 @@ const CountdownTimer: React.FC = () => {
           ))}
         </div>
 
-        {display.reached && (
-          <div className="mt-6 text-center">
-            <p className="text-primary text-24 sm:text-30 font-bold">48% OFF — Programme Fee</p>
-            <p className="text-muted text-opacity-60 text-18 mt-2">
-              Usually Ksh 38,800 ($300). Now Ksh 20,000.
-            </p>
-            <p className="text-muted text-opacity-60 text-18">Start Date: 1st August 2026</p>
-            <p className="text-muted text-opacity-60 text-18">Programme Fee: Ksh 20,000</p>
-          </div>
-        )}
+        <div className="mt-6 text-center">
+          <p className="text-primary text-24 sm:text-30 font-bold">Ksh 25,000</p>
+        </div>
 
         {/* items-stretch (flex-col default) matches this banner's width to the
             row above so the two read as one aligned unit, not two independently
             centered elements of different widths. */}
         <div className="mt-8 border border-primary border-opacity-30 rounded-lg px-6 py-3">
           <p className="text-primary text-sm font-semibold tracking-wide uppercase text-center">
-            Limited to 50 traders · 23 seats remaining
+            {remainingSeats > 0
+              ? `Limited to 50 traders · ${remainingSeats} seats remaining`
+              : "Limited to 50 traders · Fully booked"}
           </p>
         </div>
       </div>

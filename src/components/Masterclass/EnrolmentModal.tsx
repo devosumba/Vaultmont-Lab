@@ -48,9 +48,29 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
   const [form, setForm] = useState(initialForm);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [remainingSeats, setRemainingSeats] = useState(23);
+
+  const fetchSeats = async () => {
+    try {
+      const res = await fetch("/api/seats/");
+      const data = await res.json();
+      setRemainingSeats(data.remaining);
+    } catch (error) {
+      // Keep the last known count if the fetch fails.
+    }
+  };
+
+  // Fetch the live seat count on page load.
+  useEffect(() => {
+    fetchSeats();
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
+
+    // Refresh the seat count every time the pop up is opened.
+    fetchSeats();
 
     // CHANGE 3: kill background scrolling while the pop up is open.
     document.body.style.overflow = "hidden";
@@ -123,8 +143,18 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
       setForm(initialForm);
       setSubmitted(false);
       setSubmitting(false);
+      setSubmitError(false);
     }
   }, [isOpen]);
+
+  // CHANGE 5: auto-close the pop up 3 seconds after a successful submission.
+  useEffect(() => {
+    if (!submitted) return;
+    const timer = setTimeout(() => {
+      onClose();
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [submitted, onClose]);
 
   const handleOverlayMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
@@ -151,17 +181,38 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
     }
 
     setSubmitting(true);
+    setSubmitError(false);
 
-    // TODO: No enrolment backend/email service exists yet — this is a
-    // placeholder. Wire this up the same way the newsletter form posts to
-    // /api/newsletter (see src/app/api/newsletter and src/lib/*EmailService)
-    // once a real enrolment endpoint + destination email/CRM are available.
-    console.log("New Trading Masterclass enrolment submission:", form);
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    try {
+      const response = await fetch("/api/enrol/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-    setSubmitting(false);
-    setSubmitted(true);
-    toast.success("Enrolment received!");
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        toast.success("Enrolment received!");
+
+        try {
+          const seatsResponse = await fetch("/api/seats/", { method: "POST" });
+          const seatsData = await seatsResponse.json();
+          setRemainingSeats(seatsData.remaining);
+        } catch (error) {
+          // Non-critical: the enrolment itself already succeeded.
+        }
+      } else {
+        setSubmitError(true);
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setSubmitError(true);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -187,12 +238,12 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
           <Image src="/images/logo/nav_logo2.svg" alt="Vaultmont logo" width={120} height={38} style={{ width: "auto", height: "auto" }} />
         </div>
 
-        {!submitted && <CountdownTimer />}
+        {!submitted && <CountdownTimer remainingSeats={remainingSeats} />}
 
         {submitted ? (
           <div className="text-center py-10">
-            <Icon icon="tabler:check-circle" className="text-primary mx-auto mb-4" width={48} height={48} />
-            <h3 className="text-white text-24 font-medium mb-3">Enrolment Received</h3>
+            <Icon icon="tabler:check-circle" className="text-success mx-auto mb-4" width={48} height={48} />
+            <h3 className="text-success text-24 font-medium mb-3">Enrolment Received</h3>
             <p className="text-muted text-opacity-60 text-18">
               Thank you — your enrolment has been received. Payment instructions will be sent to your
               email and WhatsApp within 1 hour of submission.
@@ -275,16 +326,22 @@ const EnrolmentModal: React.FC<EnrolmentModalProps> = ({ isOpen, onClose }) => {
                 <span>
                   I confirm that I am willing to commit to the full 6-week programme, including the
                   weekly sessions and the Vaultmont Consistency Evaluation at close, with a programme
-                  fee of Ksh 20,000 starting August 2026.
+                  fee of Ksh 25,000 starting August 2026.
                 </span>
               </label>
+
+              {submitError && (
+                <p className="text-error text-sm text-center mb-4">
+                  Something went wrong. Please try again.
+                </p>
+              )}
 
               <button
                 type="submit"
                 disabled={submitting}
                 className="bg-primary w-full py-3 rounded-lg text-18 font-medium border border-primary hover:text-primary hover:bg-transparent disabled:opacity-50"
               >
-                {submitting ? "Submitting..." : "Submit Enrolment →"}
+                {submitting ? "Sending..." : "Submit Enrolment →"}
               </button>
 
               <p className="text-muted text-opacity-60 text-sm text-center mt-4">

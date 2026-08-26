@@ -250,21 +250,23 @@ export default function FAQ() {
     {
       name: "Ian Tom Ondu",
       title: "Founder & Lead Mentor, Trading Mastery Track",
-      image: "/images/team/Ondu_Team Avatar.svg",
+      image: "/assets/team/ian.jpeg",
+      containImage: true,
       bio:
         "Ian is an electronic trader with 8+ years navigating the derivatives markets across forex, gold, crypto, and indices. He holds dual certifications as a Financial Planning & Wealth Management Professional (FPWMP) and Capital Markets & Securities Analyst (CMSA), and brings the rigor of a trained Economist (BA, Economics & Finance) to every setup he teaches. Ian built the Trading Mastery Track to give traders a structured, risk-first path — not shortcuts, but the discipline that separates consistent traders from the rest.",
     },
     {
       name: "Brian Bawa",
       title: "Lead Mentor, Wealth & Investment Track",
-      image: "/images/team/Brian_Team Avatar (1).svg",
+      image: "/assets/team/bawa.jpeg",
+      containImage: true,
       bio:
         "Brian is an investment finance professional with a proven track record in investment analysis, portfolio allocation, and risk optimization. His experience spans both global markets and the Nairobi Securities Exchange (NSE), giving him a rare dual lens — global best practice paired with deep local market insight. Brian leads the Wealth & Investment Track with a focus on building portfolios that are diversified, risk-aware, and built to compound over time.",
     },
     {
       name: "Austine Osumba",
       title: "IT & Systems",
-      image: "/images/team/Osumba_Team Avatar.svg",
+      image: "/assets/team/austine.jpg",
       bio:
         "Austine is the software engineer behind the platform's reliability — the person who makes sure the tools, data feeds, and trading infrastructure work flawlessly when it matters most. With a background in building systems for high-stakes, real-time environments, he brings the same precision to trading platforms that markets themselves demand: speed, accuracy, and zero tolerance for downtime. Austine ensures every mentor and member has a seamless and secure experience.",
     },
@@ -332,8 +334,8 @@ export default function FAQ() {
                   className="group relative bg-[#181818] rounded-xl border border-[#222] px-6 py-8 flex flex-col items-center shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer min-w-[220px] md:min-w-[260px] lg:min-w-[300px]"
                   onClick={() => setActiveTeamIdx(isActive ? null : i)}
                 >
-                  <div className="w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center bg-[#232323]">
-                    <img src={member.image} alt={member.name} className="object-cover w-full h-full" />
+                  <div className={`w-full aspect-square rounded-lg overflow-hidden mb-6 flex items-center justify-center ${member.containImage ? "bg-[#181818]" : "bg-[#232323]"}`}>
+                    <img src={member.image} alt={member.name} className={`w-full h-full ${member.containImage ? "object-contain object-top" : "object-cover"}`} />
                   </div>
                   <div className="flex items-center w-full justify-center gap-2">
                     <div className="flex flex-col items-center w-full">
